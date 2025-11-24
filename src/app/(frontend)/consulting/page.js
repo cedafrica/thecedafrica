@@ -40,7 +40,7 @@ const Consulting = async () => {
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <Link
-          href="/contact"
+          href="https://forms.zohopublic.com/cedafrica1/form/CEDAFRICATRADEPARTNERREGISTRATION/formperma/GjW-gerRT7hXlJQd4HTw7SzZo9YZkQ4nIuC9Yapk-q8"  target="_blank"
           className="group inline-flex items-center gap-4 rounded-full border border-white text-white px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
         >
           <span>Become a Trade Partner</span>
@@ -76,7 +76,7 @@ const Consulting = async () => {
   <div className="container-fluid px-6">
     
     <FadeInOnScroll>
-      <h2 className="text-4xl lg:text-5xl articulatcf font-black text-black text-center mb-20">
+      <h2 className="text-4xl lg:text-3xl articulatcf font-black text-black text-center mb-20">
         Why Architects Choose CED Consulting
       </h2>
     </FadeInOnScroll>
@@ -93,11 +93,11 @@ const Consulting = async () => {
         <div className="flex items-start gap-4">
           <PenTool size={36} className="text-black" />
           <div>
-            <h3 className="text-2xl articulatcf font-black text-black mb-3">
+            <h3 className="text-xl articulatcf font-black text-black mb-3">
               Design Comes First
             </h3>
             <p className="text-base articulatcfLight text-gray-700">
-              Your vision always leads. AVL is engineered to enhance — not compete with — your design.
+              Your vision always leads. AVL is engineered to enhance, not compete with your design.
             </p>
           </div>
         </div>
@@ -112,11 +112,11 @@ const Consulting = async () => {
         <div className="flex items-start gap-4">
           <Layers size={36} className="text-black" />
           <div>
-            <h3 className="text-2xl articulatcf font-black text-black mb-3">
+            <h3 className="text-xl articulatcf font-black text-black mb-3">
               Simplified Execution
             </h3>
             <p className="text-base articulatcfLight text-gray-700">
-              No endless back-and-forth with integrators. We handle technical details, tender documentation, and oversight — so you stay focused on creativity.
+              No endless back-and-forth with integrators. We handle technical details, tender documentation, and oversight, so you stay focused on creativity.
             </p>
           </div>
         </div>
@@ -131,12 +131,14 @@ const Consulting = async () => {
         <div className="flex items-start gap-4">
           <TrendingUp size={36} className="text-black" />
           <div>
-            <h3 className="text-2xl articulatcf font-black text-black mb-3">
+            <h3 className="text-xl articulatcf font-black text-black mb-3">
               Higher Returns
             </h3>
             <p className="text-base articulatcfLight text-gray-700">
-              Professional AVL integration increases project value — boosting margins and attracting premium clients.
+              Earn attractive referral commissions when you bring in qualified projects. 
+              We reward your partnerships with competitive percentages and long-term value.
             </p>
+
           </div>
         </div>
       </FadeInOnScroll>
@@ -150,7 +152,7 @@ const Consulting = async () => {
         <div className="flex items-start gap-4">
           <ShieldCheck size={36} className="text-black" />
           <div>
-            <h3 className="text-2xl articulatcf font-black text-black mb-3">
+            <h3 className="text-xl articulatcf font-black text-black mb-3">
               Exclusive Expertise
             </h3>
             <p className="text-base articulatcfLight text-gray-700">
@@ -169,7 +171,7 @@ const Consulting = async () => {
         <div className="flex items-start gap-4">
           <ClipboardCheck size={40} className="text-black" />
           <div>
-            <h3 className="text-2xl articulatcf font-black text-black mb-3">
+            <h3 className="text-xl articulatcf font-black text-black mb-3">
               Project Confidence
             </h3>
             <p className="text-base articulatcfLight text-gray-700 max-w-3xl">
@@ -186,62 +188,68 @@ const Consulting = async () => {
       <section data-light className="bg-gray-100 py-24 relative">
   <div className="container-fluid px-6">
     <FadeInOnScroll>
-      <h2 className="text-4xl lg:text-5xl articulatcf font-black text-black text-center mb-20">
-        Our Professional Process
+      <h2 className="text-4xl lg:text-3xl articulatcf font-black text-black text-center mb-20">
+        Our Methodology
       </h2>
     </FadeInOnScroll>
 
     {/* Timeline */}
-    <div className="relative max-w-4xl mx-auto before:absolute before:top-0 before:left-1/2 before:h-full before:w-1 before:-translate-x-1/2 before:bg-gray-300">
+    <div className="relative max-w-4xl mx-auto before:absolute before:top-0 before:left-1/2 before:h-full before:w-1 before:-translate-x-1/2 before:bg-gray-200">
 
-      {[ 
+      {[
         {
           number: "1",
-          title: "Client Discovery & Briefing",
-          description: "We understand your vision, project goals, and client expectations."
+          title: "Client Discovery",
+          description:
+            "We begin by understanding the project vision, functional requirements, and client expectations."
         },
         {
           number: "2",
-          title: "Consulting & Strategy",
-          description: "We define the AVL scope, tender requirements, and integration approach tailored to your project."
+          title: "AV Design",
+          description:
+            "Our team develops a tailored AV concept, defining system architecture, performance goals, and integration pathways."
         },
         {
           number: "3",
-          title: "Engineered Design",
-          description: "We produce detailed technical designs, schematics, and specifications — fully coordinated with your architectural and interior plans."
+          title: "Tender Document Proposal",
+          description:
+            "We prepare structured tender documents, equipment lists, and specifications to guide accurate quoting and partner alignment."
         },
         {
           number: "4",
-          title: "Tender & Partner Selection",
-          description: "We identify the right certified trade partners to execute flawlessly, keeping your design central."
-        },
-        {
-          number: "5",
-          title: "Project Oversight & Execution",
-          description: "We supervise installation, commissioning, and fine-tuning, ensuring every system performs to perfection."
-        },
-        {
-          number: "6",
-          title: "Delivery & Handover",
-          description: "The project is completed to premium standards, enhancing client satisfaction and protecting your professional reputation."
+          title: "Engineered Drawings",
+          description:
+            "We produce complete engineering drawings coordinated with MEP, architectural layouts, and interior design requirements."
         }
       ].map((step, index) => (
         <FadeInOnScroll key={step.number} className="relative mb-12">
-          <div className={`flex flex-col md:flex-row items-center md:items-start ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
-            
+          <div
+            className={`flex flex-col md:flex-row items-center md:items-start ${
+              index % 2 === 0 ? "md:flex-row-reverse" : ""
+            }`}
+          >
             {/* Step Circle */}
             <div className="flex-shrink-0 w-12 h-12 bg-black text-white rounded-full flex items-center justify-center articulatcf font-black text-xl z-10">
               {step.number}
             </div>
 
             {/* Card */}
-            <div className={`bg-white p-6 rounded-lg shadow-md max-w-md md:mx-8 ${index % 2 === 0 ? "md:ml-8" : "md:mr-8"}`}>
-              <h3 className="text-2xl articulatcf font-black text-black mb-2">{step.title}</h3>
-              <p className="text-base articulatcfLight text-gray-700">{step.description}</p>
+            <div
+              className={`bg-white p-6 rounded-lg shadow-md max-w-md md:mx-8 ${
+                index % 2 === 0 ? "md:ml-8" : "md:mr-8"
+              }`}
+            >
+              <h3 className="text-xl articulatcf font-black text-black mb-2">
+                {step.title}
+              </h3>
+              <p className="text-base articulatcfLight text-gray-700">
+                {step.description}
+              </p>
             </div>
           </div>
         </FadeInOnScroll>
       ))}
+
     </div>
   </div>
 </section>
@@ -262,7 +270,7 @@ const Consulting = async () => {
 
   <div className="relative container-fluid px-6 py-20 text-center max-w-4xl mx-auto">
     <FadeInOnScroll>
-      <h2 className="text-4xl lg:text-5xl articulatcf font-black text-white mb-12">
+      <h2 className="text-4xl lg:text-3xl articulatcf font-black text-white mb-12">
         Who We Work With
       </h2>
 
@@ -299,7 +307,7 @@ const Consulting = async () => {
       <section data-light className="relative py-20 bg-gray-50">
   <div className="container-fluid px-6">
     <FadeInOnScroll>
-      <h2 className="text-4xl lg:text-5xl articulatcf font-black text-black text-center mb-16">
+      <h2 className="text-4xl lg:text-3xl articulatcf font-black text-black text-center mb-16">
         The Impact for You
       </h2>
     </FadeInOnScroll>
@@ -387,8 +395,8 @@ const Consulting = async () => {
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <Link
-          href="/contact"
-          className="group inline-flex items-center gap-4 rounded-full border border-white text-white bg-transparent px-8 py-4 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
+          href="https://forms.zohopublic.com/cedafrica1/form/CEDAFRICATRADEPARTNERREGISTRATION/formperma/GjW-gerRT7hXlJQd4HTw7SzZo9YZkQ4nIuC9Yapk-q8"  target="_blank"
+          className="group inline-flex items-center gap-4 rounded-full border border-white text-white px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
         >
           <span>Become a Trade Partner</span>
           <Image

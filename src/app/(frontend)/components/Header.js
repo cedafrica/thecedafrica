@@ -21,25 +21,25 @@ export default function Header() {
     { title: 'HOME', path: '/' },
     { title: 'ABOUT US', path: '/aboutus' },
 
+    
+
+    // SERVICES (dynamic API submenu)
+    { title: 'SERVICES', path: '#', submenu: [] },
+
+    { title: 'EXPERIENCES', path: '/experiences' },
+    { title: 'BLOG', path: '/blog' },
+    { title: 'PROJECTS', path: '/projects' },
+    { title: 'PARTNERS', path: '/partners' },
     // NEW: CED ARMS (PARENT MENU)
     {
-      title: 'CED ARMS',
+      title: 'CED PRO',
       path: '#',
       submenu: [
         { title: 'AV DISTRIBUTION', path: '/distribution' },
         { title: 'AV CONSULTING', path: '/consulting' },
       ],
     },
-
-    // SERVICES (dynamic API submenu)
-    { title: 'SERVICES', path: '#', submenu: [] },
-
-    { title: 'EXPERIENCES', path: '/experiences' },
-    
-    { title: 'PROJECTS', path: '/projects' },
-    { title: 'PARTNERS', path: '/partners' },
     { title: 'STORE', path: 'https://www.soundhous.com' },
-    { title: 'BLOG', path: '/blog' },
     { title: 'CONTACT US', path: '/contact' },
   ])
 
