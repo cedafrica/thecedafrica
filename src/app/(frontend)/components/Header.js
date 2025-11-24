@@ -35,10 +35,11 @@ export default function Header() {
     { title: 'SERVICES', path: '#', submenu: [] },
 
     { title: 'EXPERIENCES', path: '/experiences' },
-    { title: 'BLOG', path: '/blog' },
+    
     { title: 'PROJECTS', path: '/projects' },
     { title: 'PARTNERS', path: '/partners' },
     { title: 'STORE', path: 'https://www.soundhous.com' },
+    { title: 'BLOG', path: '/blog' },
     { title: 'CONTACT US', path: '/contact' },
   ])
 
