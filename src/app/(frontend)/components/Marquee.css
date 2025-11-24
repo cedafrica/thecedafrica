@@ -1,0 +1,29 @@
+/* src/app/(frontend)/components/Marquee.css */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%; /* Adjust as needed */
+}
+
+.marquee {
+  display: inline-block;
+  animation: marquee 15s linear infinite; /* Adjust duration for speed */
+  padding: 20px 10px;
+  font-size: 100px;
+  color: #1e1e1e;
+}
+
+@media (max-width: 768px) {
+  .marquee {
+    font-size: 70px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0); /* Start at the beginning */
+  }
+  100% {
+    transform: translateX(-100%); /* Move left by the full width of the marquee */
+  }
+}

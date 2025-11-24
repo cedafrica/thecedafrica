@@ -1,0 +1,441 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --transition-speed: 0.4s;
+  --transition-easing: cubic-bezier(0.25, 1, 0.5, 1);
+  --dropdown-delay: 0.2s;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Figtree', Helvetica !important;
+}
+
+@font-face {
+  font-family: 'Figtree'; /* Choose a custom name for your font */
+  src: url('/fonts/Figtree.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica'; /* Choose a custom name for your font */
+  src: url('/fonts/Helvetica.ttf') format('truetype');
+}
+
+.articulatcf {
+  font-family: 'Figtree', Helvetica !important;
+  font-weight: 700 !important;
+}
+
+.articulatcfLight {
+  font-family: 'Figtree', Helvetica !important;
+  font-weight: 400 !important;
+}
+
+button,
+[type='button'],
+[type='submit'],
+a {
+  cursor: pointer !important;
+}
+
+a:-webkit-any-link {
+  cursor: pointer !important;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: all var(--transition-speed) var(--transition-easing);
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: 'Figtree', Helvetica !important;
+}
+
+::placeholder {
+  font-family: 'Figtree', Helvetica !important;
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.header .container-fluid {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0px 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.container-fluid {
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
+footer .container-fluid {
+  max-width: 1350px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+@media (min-width: 1700px) {
+  .header .container-fluid,
+  .container-fluid {
+    max-width: 1700px;
+  }
+
+  footer .container-fluid {
+    max-width: 1700px;
+  }
+}
+
+.header .logo {
+  font-weight: bold;
+}
+
+.header .logo a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header .nav ul.main-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header .nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-family: 'Figtree', Helvetica !important;
+  font-size: 12px;
+  transition: color var(--transition-speed) var(--transition-easing);
+  padding: 30px 0;
+}
+
+.header .nav a:hover,
+footer a:hover {
+  color: #ababab;
+}
+
+/* Dropdown Menu Styles */
+.header .menu-item {
+  position: static;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.header .dropdown-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0);
+  transition:
+    opacity var(--transition-speed) var(--transition-easing),
+    visibility var(--transition-speed) var(--transition-easing),
+    transform var(--transition-speed) var(--transition-easing);
+  transition-delay: 0s;
+  z-index: 100;
+  pointer-events: none;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+/* Create a hover area that extends down to the dropdown */
+.header .menu-item::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+}
+
+.header .menu-item:hover .dropdown-container {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: var(--dropdown-delay);
+}
+
+/* Keep dropdown open when hovering over the dropdown itself */
+.header .dropdown-container:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.header .dropdown {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+}
+
+.header .dropdownmenu:hover {
+  background-color: #f6f3f4;
+  transform: translateX(5px);
+}
+
+.header .dropdown a {
+  color: #000;
+  transition: all var(--transition-speed) var(--transition-easing);
+  border-radius: 4px;
+}
+
+.header .dropdown a:hover {
+  color: #222222;
+  transform: translateX(5px);
+}
+
+.header .hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  z-index: 10;
+}
+
+.header .hamburger .line {
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: all var(--transition-speed) var(--transition-easing);
+}
+
+@media (max-width: 768px) {
+  .header .hamburger {
+    display: flex;
+  }
+
+  .header .hamburger.active .line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .header .hamburger.active .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header .hamburger.active .line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .header .nav {
+    position: fixed;
+    height: 100vh;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 1);
+    padding: 2rem;
+    transform: translateX(100%);
+    transition: transform var(--transition-speed) var(--transition-easing);
+    visibility: hidden;
+    font-family: 'Figtree', Helvetica !important;
+    overflow-y: auto;
+  }
+
+  .header .nav.active {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .header .nav ul.main-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .header .nav li {
+    width: 100%;
+  }
+
+  /* Mobile dropdown handling */
+  .header .menu-item {
+    position: relative;
+    height: 100%;
+    display: inline-block;
+  }
+
+  .header .menu-item::after {
+    display: none;
+  }
+
+  .header .dropdown-container {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    height: 100%;
+    overflow: hidden;
+    transition: height var(--transition-speed) var(--transition-easing);
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 5px;
+    border-radius: 4px;
+    pointer-events: auto;
+  }
+
+  .header .menu-item:hover .dropdown-container {
+    height: auto;
+  }
+
+  .header .dropdown {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .header .dropdown li {
+    flex: none;
+  }
+
+  .header .dropdown a {
+    color: #fff;
+    padding: 2px 4px;
+    font-size: 10px;
+  }
+
+  .header .dropdown a:hover {
+    transform: translateX(0);
+  }
+
+  .submenu-image-container {
+    height: 200px !important; /* Adjust as needed */
+  }
+}
+
+/* Add padding to main content to account for fixed header */
+
+.dropdown-container .grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.submenu-image-container {
+  height: 300px; /* Adjust as needed */
+  overflow: hidden;
+}
+
+.submenu-image-container img {
+  transition: all 0.3s ease-in-out;
+}
+
+.contactFormImg {
+  width: 100% !important;
+}
+
+.loader {
+  border-width: 2px; /* Adjust the thickness */
+  border-color: white; /* Spinner color */
+  border-top-color: transparent; /* Top color for the spinning effect */
+}
+
+.invert {
+  filter: invert(100%);
+}
+
+.hover-btn,
+.hover-btnw {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 9999px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-family: 'Figtree', Helvetica !important;
+}
+
+.hover-btn:hover {
+  background-color: #181818; /* light shade of black */
+  color: white;
+  border: 1px solid white;
+}
+
+.hover-btnw:hover {
+  background-color: #fff; /* light shade of black */
+  color: #000;
+  border: 1px solid #000;
+}
+
+.hover-btn:hover img {
+  filter: invert(1);
+  transform: rotate(-10deg);
+  transition: all 0.3s ease;
+}
+
+.image-hover-effect {
+  transition:
+    transform 0.8s ease,
+    box-shadow 0.8s ease;
+  transform-origin: center;
+  display: inline-block;
+}
+
+.image-hover-effect:hover {
+  transform: scale(1.05);
+  box-shadow: inset 0 -40px 60px rgba(0, 0, 0, 0.5);
+}
+
+.sentence-case {
+  text-transform: lowercase;
+}
+
+.sentence-case::first-letter {
+  text-transform: uppercase;
+}
+
+.contactImg span {
+  display: block !important;
+}
