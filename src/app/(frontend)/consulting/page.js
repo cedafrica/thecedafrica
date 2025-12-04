@@ -292,7 +292,7 @@ const Consulting = () => {
           className="w-full h-96 object-cover"
         />
         <div className="p-8">
-          <h3 className="text-2xl font-semibold mb-4">Ultra High-End Residential Consulting</h3>
+          <h3 className="text-2xl text-black font-semibold mb-4">Ultra High-End Residential Consulting</h3>
           <p className="text-gray-700 mb-2">
             We provide expert AV consulting and design for luxury homes and estates:
           </p>
@@ -337,7 +337,7 @@ const Consulting = () => {
           className="w-full h-96 object-cover"
         />
         <div className="p-8">
-          <h3 className="text-2xl font-semibold mb-4">Enterprise & Corporate Powerhouses</h3>
+          <h3 className="text-2xl font-semibold mb-4 text-black">Enterprise & Corporate Powerhouses</h3>
           <ul className="list-disc list-inside text-gray-600 mb-4">
             <li>Boardroom audio & video planning</li>
             <li>Large meeting & collaboration room design</li>
