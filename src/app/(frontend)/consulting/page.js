@@ -46,7 +46,7 @@ const Consulting = () => {
   className="relative h-screen w-full flex items-center justify-center text-white bg-cover bg-center bg-no-repeat"
   style={{
     backgroundImage: "url('/consult.webp')", // Change to your image
-    backgroundAttachment: "fixed",
+    backgroundAttachment: "",
   }}
 >
   {/* Dark Overlay */}
@@ -593,7 +593,7 @@ const Consulting = () => {
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
         <Link
-          href="/experiences" target='_blank'
+          href="/experiences" target='_blank~'
           className="group inline-flex items-center gap-4 rounded-full border border-white text-white px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
         >
           <span>Visit Our Experience Centre</span>
