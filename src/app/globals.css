@@ -439,3 +439,6 @@ footer a:hover {
 .contactImg span {
   display: block !important;
 }
+html {
+  scroll-behavior: smooth;
+}

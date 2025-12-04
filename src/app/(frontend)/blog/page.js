@@ -12,7 +12,7 @@ const blogPosts = [
     date: '2025-11-23',
     excerpt:
       'A CED Africa Insight Report',
-    image: '/cc.jpg',
+    image: '/pro.jpeg',
   },
   
 ]
