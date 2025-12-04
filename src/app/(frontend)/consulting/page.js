@@ -379,7 +379,7 @@ const Consulting = () => {
           className="w-full h-96 object-cover"
         />
         <div className="p-8">
-          <h3 className="text-2xl font-semibold mb-4">Premium Hospitality & Lifestyle Spaces</h3>
+          <h3 className="text-2xl font-semibold text-black mb-4">Premium Hospitality & Lifestyle Spaces</h3>
           <ul className="list-disc list-inside text-gray-600 mb-4">
             <li>Multi-zone audio & video system planning</li>
             <li>Acoustic design for entertainment & event spaces</li>
@@ -420,7 +420,7 @@ const Consulting = () => {
           className="w-full h-96 object-cover"
         />
         <div className="p-8">
-          <h3 className="text-2xl font-semibold mb-4">High-End Religious & Large Congregational Spaces</h3>
+          <h3 className="text-2xl font-semibold text-black mb-4">High-End Religious & Large Congregational Spaces</h3>
           <ul className="list-disc list-inside text-gray-600 mb-4">
             <li>Sound reinforcement & coverage planning</li>
             <li>Speech intelligibility and acoustic clarity analysis</li>
