@@ -315,9 +315,11 @@ const Consulting = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }}
-  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
+  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn whitespace-nowrap"
 >
-  <span>Let’s Design Your Next Project</span>
+  <span className="text-sm sm:text-base md:text-lg">
+    Let’s Design Your Next Project
+  </span>
   <Image
     src="/blackarrow.svg"
     alt="arrow"
@@ -326,6 +328,7 @@ const Consulting = () => {
     className="transition-transform duration-300 group-hover:-rotate-45"
   />
 </Link>
+
         </div>
       </div>
 
@@ -357,9 +360,11 @@ const Consulting = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }}
-  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
+  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn whitespace-nowrap"
 >
-  <span>Let’s Design Your Next Project</span>
+  <span className="text-sm sm:text-base md:text-lg">
+    Let’s Design Your Next Project
+  </span>
   <Image
     src="/blackarrow.svg"
     alt="arrow"
@@ -368,6 +373,7 @@ const Consulting = () => {
     className="transition-transform duration-300 group-hover:-rotate-45"
   />
 </Link>
+
         </div>
       </div>
 
@@ -398,9 +404,11 @@ const Consulting = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }}
-  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
+  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn whitespace-nowrap"
 >
-  <span>Let’s Design Your Next Project</span>
+  <span className="text-sm sm:text-base md:text-lg">
+    Let’s Design Your Next Project
+  </span>
   <Image
     src="/blackarrow.svg"
     alt="arrow"
@@ -409,6 +417,7 @@ const Consulting = () => {
     className="transition-transform duration-300 group-hover:-rotate-45"
   />
 </Link>
+
         </div>
       </div>
 
@@ -439,9 +448,11 @@ const Consulting = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }}
-  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
+  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn whitespace-nowrap"
 >
-  <span>Let’s Design Your Next Project</span>
+  <span className="text-sm sm:text-base md:text-lg">
+    Let’s Design Your Next Project
+  </span>
   <Image
     src="/blackarrow.svg"
     alt="arrow"
@@ -450,6 +461,7 @@ const Consulting = () => {
     className="transition-transform duration-300 group-hover:-rotate-45"
   />
 </Link>
+
 
         </div>
       </div>
