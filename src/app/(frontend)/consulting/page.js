@@ -116,7 +116,7 @@ const Consulting = () => {
     <FadeInOnScroll direction="left">
       <div className="w-full h-[420px] rounded-2xl overflow-hidden shadow-2xl">
         <img
-          src="/impacts.webp" // Change image
+          src="/dist.jpeg" // Change image
           alt="About CED"
           className="w-full h-full object-cover scale-105 hover:scale-110 transition-all duration-700 ease-out"
         />
