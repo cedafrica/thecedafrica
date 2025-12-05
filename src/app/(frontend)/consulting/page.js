@@ -116,7 +116,7 @@ const Consulting = () => {
     <FadeInOnScroll direction="left">
       <div className="w-full h-[420px] rounded-2xl overflow-hidden shadow-2xl">
         <img
-          src="/impacts.webp" // Change image
+          src="/dist.jpeg" // Change image
           alt="About CED"
           className="w-full h-full object-cover scale-105 hover:scale-110 transition-all duration-700 ease-out"
         />
@@ -486,19 +486,20 @@ const Consulting = () => {
     </p>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-      <div className="bg-black bg-opacity-40 rounded-2xl p-6 backdrop-blur-sm shadow-lg">
+      <div className="bg-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-xl">
+
         <h3 className="text-xl font-semibold mb-3">For Architects</h3>
         <p className="text-gray-300">
           Early-stage coordination and precise technical drawings protect your spatial vision.
         </p>
       </div>
-      <div className="bg-black bg-opacity-40 rounded-2xl p-6 backdrop-blur-sm shadow-lg">
+      <div className="bg-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-xl">
         <h3 className="text-xl font-semibold mb-3">For Interior Designers</h3>
         <p className="text-gray-300">
           Technology blends seamlessly with your aesthetic intent—clean, minimal, beautiful.
         </p>
       </div>
-      <div className="bg-black bg-opacity-40 rounded-2xl p-6 backdrop-blur-sm shadow-lg">
+    <div className="bg-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-xl">
         <h3 className="text-xl font-semibold mb-3">For MEP Consultants</h3>
         <p className="text-gray-300">
           Accurate load calculations, conduit sizing, ceiling coordination, and network-ready documentation.
