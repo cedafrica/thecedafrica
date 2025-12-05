@@ -46,7 +46,7 @@ const Consulting = () => {
   className="relative h-screen w-full flex items-center justify-center text-white bg-cover bg-center bg-no-repeat"
   style={{
     backgroundImage: "url('/consult.webp')", // Change to your image
-    backgroundAttachment: "fixed",
+    backgroundAttachment: "",
   }}
 >
   {/* Dark Overlay */}
@@ -292,7 +292,7 @@ const Consulting = () => {
           className="w-full h-96 object-cover"
         />
         <div className="p-8">
-          <h3 className="text-2xl font-semibold mb-4">Ultra High-End Residential Consulting</h3>
+          <h3 className="text-2xl text-black font-semibold mb-4">Ultra High-End Residential Consulting</h3>
           <p className="text-gray-700 mb-2">
             We provide expert AV consulting and design for luxury homes and estates:
           </p>
@@ -315,9 +315,11 @@ const Consulting = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }}
-  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
+  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn whitespace-nowrap"
 >
-  <span>Let’s Design Your Next Project</span>
+  <span className="text-sm sm:text-base md:text-lg">
+    Let’s Design Your Next Project
+  </span>
   <Image
     src="/blackarrow.svg"
     alt="arrow"
@@ -326,6 +328,7 @@ const Consulting = () => {
     className="transition-transform duration-300 group-hover:-rotate-45"
   />
 </Link>
+
         </div>
       </div>
 
@@ -337,7 +340,7 @@ const Consulting = () => {
           className="w-full h-96 object-cover"
         />
         <div className="p-8">
-          <h3 className="text-2xl font-semibold mb-4">Enterprise & Corporate Powerhouses</h3>
+          <h3 className="text-2xl font-semibold mb-4 text-black">Enterprise & Corporate Powerhouses</h3>
           <ul className="list-disc list-inside text-gray-600 mb-4">
             <li>Boardroom audio & video planning</li>
             <li>Large meeting & collaboration room design</li>
@@ -357,9 +360,11 @@ const Consulting = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }}
-  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
+  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn whitespace-nowrap"
 >
-  <span>Let’s Design Your Next Project</span>
+  <span className="text-sm sm:text-base md:text-lg">
+    Let’s Design Your Next Project
+  </span>
   <Image
     src="/blackarrow.svg"
     alt="arrow"
@@ -368,6 +373,7 @@ const Consulting = () => {
     className="transition-transform duration-300 group-hover:-rotate-45"
   />
 </Link>
+
         </div>
       </div>
 
@@ -379,7 +385,7 @@ const Consulting = () => {
           className="w-full h-96 object-cover"
         />
         <div className="p-8">
-          <h3 className="text-2xl font-semibold mb-4">Premium Hospitality & Lifestyle Spaces</h3>
+          <h3 className="text-2xl font-semibold text-black mb-4">Premium Hospitality & Lifestyle Spaces</h3>
           <ul className="list-disc list-inside text-gray-600 mb-4">
             <li>Multi-zone audio & video system planning</li>
             <li>Acoustic design for entertainment & event spaces</li>
@@ -398,9 +404,11 @@ const Consulting = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }}
-  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
+  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn whitespace-nowrap"
 >
-  <span>Let’s Design Your Next Project</span>
+  <span className="text-sm sm:text-base md:text-lg">
+    Let’s Design Your Next Project
+  </span>
   <Image
     src="/blackarrow.svg"
     alt="arrow"
@@ -409,6 +417,7 @@ const Consulting = () => {
     className="transition-transform duration-300 group-hover:-rotate-45"
   />
 </Link>
+
         </div>
       </div>
 
@@ -420,7 +429,7 @@ const Consulting = () => {
           className="w-full h-96 object-cover"
         />
         <div className="p-8">
-          <h3 className="text-2xl font-semibold mb-4">High-End Religious & Large Congregational Spaces</h3>
+          <h3 className="text-2xl font-semibold text-black mb-4">High-End Religious & Large Congregational Spaces</h3>
           <ul className="list-disc list-inside text-gray-600 mb-4">
             <li>Sound reinforcement & coverage planning</li>
             <li>Speech intelligibility and acoustic clarity analysis</li>
@@ -439,9 +448,11 @@ const Consulting = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }}
-  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
+  className="group inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn whitespace-nowrap"
 >
-  <span>Let’s Design Your Next Project</span>
+  <span className="text-sm sm:text-base md:text-lg">
+    Let’s Design Your Next Project
+  </span>
   <Image
     src="/blackarrow.svg"
     alt="arrow"
@@ -450,6 +461,7 @@ const Consulting = () => {
     className="transition-transform duration-300 group-hover:-rotate-45"
   />
 </Link>
+
 
         </div>
       </div>
@@ -593,7 +605,7 @@ const Consulting = () => {
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
         <Link
-          href="/experiences" target='_blank'
+          href="/experiences" target='_blank~'
           className="group inline-flex items-center gap-4 rounded-full border border-white text-white px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
         >
           <span>Visit Our Experience Centre</span>
