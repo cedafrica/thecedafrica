@@ -30,7 +30,7 @@ const Distribution = async () => {
     <div className="bg-white">
       {/* Hero Section */}
       <section
-  className="relative min-h-screen w-full flex items-center justify-center bg-fixed bg-cover bg-center"
+  className="relative min-h-screen w-full flex items-center justify-center bg-cover bg-center"
   style={{ backgroundImage: "url('/nw.webp')" }}
 >
   {/* Dark overlay */}
@@ -65,19 +65,7 @@ const Distribution = async () => {
         </Link>
 
         {/* Visit Experience Centre */}
-        <Link
-          href="/experiences" target='_blank'
-          className="group inline-flex items-center gap-4 rounded-full border border-white bg-black text-white px-6 py-3 transition-all duration-300 hover:bg-transparent hover:text-white"
-        >
-          <span>Visit Our Experience Centre</span>
-          <Image
-            src="/whitearrow.svg"
-            alt="arrow"
-            width={16}
-            height={16}
-            className="transition-transform duration-300 group-hover:-rotate-45"
-          />
-        </Link>
+        
       </div>
     </FadeInOnScroll>
   </div>
