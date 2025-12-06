@@ -63,7 +63,7 @@
     "typescript": "5.7.3"
   },
   "engines": {
-    "node": "22.x",
+    "node": "18.x",
     "pnpm": "^9"
   },
   "pnpm": {
