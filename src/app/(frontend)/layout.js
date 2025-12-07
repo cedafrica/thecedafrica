@@ -22,7 +22,8 @@ export default function RootLayout({ children }) {
           content="Delivering world-class audiovisual and automation experiences from West Africa."
         />
       </Head>
-      <body>
+      <body suppressHydrationWarning={true}>
+
         <div className="min-h-screen flex flex-col bg-black">
           <Header />
           <main className="flex-grow">{children}</main>
