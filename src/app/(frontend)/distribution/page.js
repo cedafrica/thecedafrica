@@ -159,7 +159,7 @@ const Distribution = async () => {
   <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
     {/* Header */}
-    <div className="text-center mb-20">
+    <div className="text-center mb-10">
       <h2 className="text-3xl md:text-5xl articulatcf font-black mb-6 tracking-tight">
         Premium Brands That Elevate Every Project
       </h2>
