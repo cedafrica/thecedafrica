@@ -97,7 +97,7 @@ const services = [
     id: 5,
     title: "Studios, Broadcast & Production Facilities",
     description: "Purpose-built spaces for editing, mixing, streaming and production workflows.",
-    image: "/Rectangle44.PNG", // change this to your preferred image
+    image: "/Rectangle44.png", // change this to your preferred image
     modalTitle: "Studio & Production Services",
     items: [
       "Post-production room design",
