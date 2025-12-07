@@ -1,15 +1,13 @@
+import payload from 'payload'
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 export const fetchCache = 'force-no-store'
 import React from 'react'
+import BrandTab from '../components/BrandTab'
 import Link from 'next/link'
 import Image from 'next/legacy/image'
-import { Server, Zap, Speaker, Home } from "lucide-react"; // Example icons
 import FadeInOnScroll from '../components/FadeInOnScroll'
-import {
-  Package,
-  ShieldCheck,
-  Headphones,
+import { Headphones,
   Users,
   Hotel,
   Music2,
@@ -21,11 +19,37 @@ import {
   Truck,
   Building2,
   Building,
+  ShieldCheck,
+  Home,
+  Package,
   GraduationCap
-} from "lucide-react";
-
+ } from "lucide-react"
 
 const Distribution = async () => {
+
+  // ⭐ REQUIRED for Payload to work
+  if (!payload.__initialized) {
+    const { default: config } = await import('@payload-config')
+    await payload.init({ config })
+    payload.__initialized = true
+  }
+
+  const brandsCollection = await payload.find({
+    collection: 'brands',
+    depth: 1,
+    sort: 'createdAt',
+    limit: 0,
+  })
+
+  const groupedBrands = brandsCollection.docs.reduce((acc, brand) => {
+    const type = brand.brandType
+    if (!acc[type]) acc[type] = []
+    acc[type].push(brand)
+    return acc
+  }, {})
+
+  const types = Object.keys(groupedBrands)
+    
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -140,109 +164,18 @@ const Distribution = async () => {
         Premium Brands That Elevate Every Project
       </h2>
       <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        From wireless audio to commercial sound, acoustics, smart living, and enterprise-grade
-        networking—our portfolio is curated for integrators delivering exceptional performance.
+        Explore our curated selection of professional brands built for performance,
+        reliability, and seamless integration across all project types.
       </p>
     </div>
 
-    {/* ULTRA-MINIMAL SILVER GRID */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-      {[
-        {
-          title: "Retail Wireless Audio",
-          brands: ["Sonos", "Arylic", "Audioflow"],
-        },
-        {
-          title: "Networking & WiFi",
-          brands: ["Ubiquiti", "TP-Link Omada"],
-        },
-        {
-          title: "Security & Surveillance",
-          brands: ["Reolink", "Shelly"],
-        },
-        {
-          title: "Commercial Audio",
-          brands: ["Luhkee", "KGEAR / K-array"],
-        },
-        {
-          title: "Acoustics & Panels",
-          brands: ["Vicoustic"],
-        },
-        {
-          title: "Lifestyle & Smart Living",
-          brands: ["Shelly", "Smart Home Ecosystems"],
-        },
-      ].map((item, index) => (
-        <div
-          key={index}
-          className="
-            group relative p-12 
-            rounded-3xl border border-gray-200 
-            bg-gradient-to-br from-white to-gray-50
-            shadow-[0_0_20px_rgba(0,0,0,0.05)]
-            hover:shadow-[0_0_40px_rgba(0,0,0,0.12)]
-            transition-all duration-500 
-            hover:-translate-y-2
-            overflow-hidden
-          "
-        >
-
-          {/* Chrome-style abstract shape */}
-          <div
-            className="
-              absolute top-0 right-0 w-32 h-32 rounded-bl-[100px]
-              bg-gradient-to-br from-gray-200/40 to-gray-300/20
-              opacity-30 group-hover:opacity-50
-              transition-all duration-500
-              blur-sm
-            "
-          />
-
-          {/* Text Content */}
-          <div className="relative z-10">
-            <h3 className="text-2xl font-semibold mb-4 tracking-tight">
-              {item.title}
-            </h3>
-
-            <ul className="space-y-2">
-              {item.brands.map((brand, i) => (
-                <li key={i} className="text-gray-700 text-base">
-                  {brand}
-                </li>
-              ))}
-            </ul>
-
-            {/* SILVER underline */}
-            <div className="
-              mt-6 h-[2px] w-0 group-hover:w-24 
-              bg-gradient-to-r from-gray-400 to-gray-500
-              transition-all duration-700
-            "></div>
-          </div>
-
-        </div>
-      ))}
-
-    </div>
-
-    {/* CTA */}
-    <div className="flex justify-center mt-20">
-      <Link
-        href="/experiences" target='_blank'
-        className="
-          group inline-flex items-center gap-4 rounded-full 
-          border border-black text-black bg-transparent 
-          px-10 py-4 transition-all duration-300 
-          hover:bg-black hover:text-white hover:shadow-xl
-        "
-      >
-        <span className="text-lg font-semibold">Visit Our Experience Centre</span>
-      </Link>
+    <div className="pt-10">
+      <BrandTab types={types} groupedBrands={groupedBrands} />
     </div>
 
   </div>
 </section>
+
 
 
 <section className="relative w-full py-32 bg-[#0B0B0C] text-white overflow-hidden">
