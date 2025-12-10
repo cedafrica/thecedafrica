@@ -58,7 +58,7 @@ const services = [
     title: "Large Experiential Venues",
     description:
       "World-class AV consulting for spaces designed to inspire—houses of worship, stadiums, arenas, and event venues requiring scale, precision and emotional impact.",
-    image: "/large.webp",
+    image: "/how.png",
     modalTitle: "Experiential Venue Consulting",
     items: [
       "Large-scale sound reinforcement design & coverage optimisation",
