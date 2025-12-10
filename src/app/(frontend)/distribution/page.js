@@ -64,12 +64,12 @@ const Distribution = async () => {
   <div className="relative flex flex-col items-center justify-center text-center px-6 py-20 w-full h-full max-w-4xl">
     <FadeInOnScroll>
       <h1 className="text-3xl md:text-4xl lg:text-4xl articulatcf font-black mb-4 text-white">
-        Premium AV & Smart Technology Distribution for Africa’s Leading Integrators
+        Premium AV Distribution for Projects That Demand Excellence
       </h1>
 
-      <p className="text-lg md:text-xl text-gray-200 max-w-2xl mb-8">
-        Access globally trusted brands, certified technical support, and a distributor that puts your business growth first.
-      </p>
+     <p className="text-lg md:text-xl text-gray-200 max-w-2xl mb-8 text-center mx-auto">
+  From residential to large-scale commercial environments, we supply globally recognized AV brands with certified support and seamless project guidance.
+</p>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
         {/* Become a Dealer */}
@@ -323,7 +323,7 @@ const Distribution = async () => {
         },
         {
           icon: Church,
-          title: "Worship Centers & Large Venues",
+          title: "Houses of Worship & Large Venues",
           desc: "Acoustics, audio distribution, speech intelligibility, and PA systems."
         }
       ].map((item, index) => {
@@ -362,13 +362,13 @@ const Distribution = async () => {
     {/* CTA */}
     <div className="flex justify-center">
       <Link
-        href="/experiences" target='_blank'
+        href="https://forms.zohopublic.com/cedafrica1/form/CEDDEALER1/formperma/3pyzHRyCZW98J78vZjxeAocUNe6_joXLPloPsomk1wg" target='_blank'
         className="group inline-flex items-center gap-4 rounded-full border border-black
                    text-black bg-transparent px-12 py-4 text-lg font-semibold
                    transition-all duration-300 hover:bg-black hover:text-white
                    hover:shadow-[0_0_25px_rgba(0,0,0,0.25)]"
       >
-        Visit the Experience Centre
+        Become a Dealer
         <Image
           src="/blackarrow.svg"
           alt="arrow"

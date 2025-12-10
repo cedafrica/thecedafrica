@@ -39,93 +39,68 @@ const problems = [
 const services = [
   {
     id: 1,
-    title: "Ultra High-End Residential Consulting",
-    description: "AV, acoustics and infrastructure design for luxury homes and private estates.",
-    image: "/pro.jpeg",
-    modalTitle: "Residential AV Consulting Services",
+    title: "High-End Residential Apartments & Private Estates",
+    description:
+      "Bespoke audiovisual, acoustic and infrastructure consulting for luxury residences where performance, discretion, and architectural harmony are non-negotiable.",
+    image: "/residential.jpeg",
+    modalTitle: "High-End Residential Consulting",
     items: [
-      "Home cinemas & immersive media rooms",
-      "Whole-home audio & smart integration planning",
-      "Acoustic analysis & treatment recommendations",
-      "Structured wiring & rack layout design",
-      "Interior coordination so technology stays visually discreet",
-    ],
+      "Private cinema & immersive media room design",
+      "Multi-room audio, control & smart home infrastructure planning",
+      "Architectural acoustic modelling & treatment guidance",
+      "Hidden technology integration & interior coordination",
+      "Structured wiring, rack architecture & equipment flow design"
+    ]
   },
+
   {
     id: 2,
-    title: "Enterprise & Corporate AV Strategy",
-    description: "Boardrooms, collaboration spaces, and enterprise AV environments engineered for clarity and reliability.",
-    image: "/corporate.webp",
-    modalTitle: "Enterprise & Corporate Services",
+    title: "Large Experiential Venues",
+    description:
+      "World-class AV consulting for spaces designed to inspire—houses of worship, stadiums, arenas, and event venues requiring scale, precision and emotional impact.",
+    image: "/large.webp",
+    modalTitle: "Experiential Venue Consulting",
     items: [
-      "Boardroom audio & video planning",
-      "Large meeting & collaboration room design",
-      "Video conferencing system specifications",
-      "Acoustic planning & sound isolation recommendations",
-      "Detailed technical documentation for integrators",
-    ],
+      "Large-scale sound reinforcement design & coverage optimisation",
+      "Acoustic clarity modelling for speech and live music",
+      "Control room, stage audio and broadcast signal flow design",
+      "LED, projection & venue-wide video distribution planning",
+      "Technical documentation, tender packages & integrator alignment"
+    ]
   },
+
   {
     id: 3,
     title: "Premium Hospitality & Lifestyle Spaces",
-    description: "AV experiences for hotels, lounges, restaurants, and branded lifestyle spaces.",
-    image: "/rest.webp",
-    modalTitle: "Hospitality & Lifestyle Services",
+    description:
+      "Atmosphere-driven AV experiences for ultra-modern lounges, nightclubs, restaurants, hotels, museums and lifestyle destinations.",
+    image: "/kilala.jpg",
+    modalTitle: "Hospitality & Lifestyle Consulting",
     items: [
-      "Multi-zone audio & video system planning",
-      "Acoustic design for entertainment & event spaces",
-      "Networked AV system specifications",
-      "Tender documentation and integrator coordination",
-      "BGM and foreground sound zoning strategy",
-    ],
+      "Multi-zone BGM & foreground audio experience mapping",
+      "Acoustic modelling for vibrant entertainment environments",
+      "Networked AV architecture & equipment specification",
+      "Lighting, ambiance & experience-led system integration planning",
+      "Tender documentation & coordination with design partners"
+    ]
   },
+
   {
     id: 4,
-    title: "Religious & Large Congregational Spaces",
-    description: "Speech-focused and music-capable AV design for worship and large venues.",
-    image: "/avimage.jpg",
-    modalTitle: "Religious & Congregational Services",
+    title: "Tier-1 Enterprise & Institutional Environments",
+    description:
+      "High-reliability AV strategy and design for elite organisations—private universities, global banks, fintech giants, telecoms, and government institutions.",
+    image: "/corporate.webp",
+    modalTitle: "Enterprise & Institutional Consulting",
     items: [
-      "Sound reinforcement & coverage planning",
-      "Speech intelligibility and acoustic clarity analysis",
-      "Multi-microphone & speaker layout recommendations",
-      "Technical documentation for integrators",
-      "System tuning and commissioning guidance (consultancy only)",
-    ],
-  },
-  {
-    id: 5,
-    title: "Studios, Broadcast & Production Facilities",
-    description: "Purpose-built spaces for editing, mixing, streaming and production workflows.",
-    image: "/Rectangle44.png", // change this to your preferred image
-    modalTitle: "Studio & Production Services",
-    items: [
-      "Post-production room design",
-      "Recording & mixing studios",
-      "Video broadcast control rooms",
-      "Acoustic treatment & isolation",
-      "Streaming architecture",
-      "Theatre & stage lighting",
-      "AV system commissioning (consultancy only)",
-    ],
-  },
-  {
-    id: 6,
-    title: "Technical Documentation & AV Engineering Support",
-    description: "End-to-end AV documentation and engineering support for integrators and project teams.",
-    image: "/engineering.jpg", // change this to your preferred image
-    modalTitle: "Engineering & Documentation Services",
-    items: [
-      "Full AV system design documentation",
-      "Schematics, signal flow & rack drawings",
-      "Room modeling & visualizations",
-      "As-built documentation & riser diagrams",
-      "Tender documentation",
-      "Integration oversight (consulting only)",
-      "On-site verification & advisory",
-    ],
-  },
-]
+      "Executive boardroom AV strategy & presentation intelligence",
+      "Enterprise-wide video conferencing & collaboration ecosystems",
+      "Lecture theatres, auditoriums & learning environment design",
+      "Acoustic optimisation for corporate performance environments",
+      "Full engineering documentation for seamless integration"
+    ]
+  }
+];
 
 const Consulting = () => {
   const [openIndex, setOpenIndex] = useState(null)
@@ -273,11 +248,10 @@ const Consulting = () => {
       <section className="bg-gray-50 py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900 text-center mb-4">
-            CED AV Consulting Services
+            CED Consulting Services
           </h2>
           <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
-            We operate strictly as an independent AV & acoustics consulting firm. We don’t sell or install equipment—our focus is design, documentation, and protecting the performance of your project.
-          </p>
+            Designing Audiovisual Experiences That Shape Moments        </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
@@ -501,12 +475,10 @@ const Consulting = () => {
 
         <div className="relative max-w-5xl mx-auto px-6 py-32 text-center text-white z-10">
           <h2 className="text-4xl lg:text-5xl font-semibold mb-6">
-            Collaborate With Technical Confidence
+            Designed Together. Delivered Perfectly.
           </h2>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-12">
-            Your design deserves flawless execution. We bridge the gap between aesthetics,
-            functionality, and engineering—ensuring your projects avoid redesigns, clashes, and
-            performance issues.
+           We align with architects, interior designers, and MEP teams to ensure clean coordination, invisible technology, and engineering accuracy—so the final space performs as beautifully as it looks.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
