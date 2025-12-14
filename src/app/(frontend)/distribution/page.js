@@ -64,11 +64,11 @@ const Distribution = async () => {
   <div className="relative flex flex-col items-center justify-center text-center px-6 py-20 w-full h-full max-w-4xl">
     <FadeInOnScroll>
       <h1 className="text-3xl md:text-4xl lg:text-4xl articulatcf font-black mb-4 text-white">
-        Premium AV Distribution for Projects That Demand Excellence
+        AV Distribution for High-End Projects
       </h1>
 
      <p className="text-lg md:text-xl text-gray-200 max-w-2xl mb-8 text-center mx-auto">
-  From residential to large-scale commercial environments, we supply globally recognized AV brands with certified support and seamless project guidance.
+  From residential to large-scale commercial environments, we partner with top-tier AV brands to deliver state of the art AV Solutions.
 </p>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -113,14 +113,13 @@ const Distribution = async () => {
     </div>
 
     {/* Grid of audiences */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-16">
       {[
-        "System Integrators",
-        "Installers / Resellers",
-        "Architects",
-        "Interior Designers",
-        "Developers & Contractors",
-        "Hospitality & Enterprise Projects"
+        "For System Integrators",
+        "For Electrical Contractors",
+        "For Developers",
+        "For Main Contractors"
+        
       ].map((item, index) => (
         <div
           key={index}
@@ -197,67 +196,70 @@ const Distribution = async () => {
     </div>
 
     {/* Features */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+   <div className="
+  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+  gap-10
+  lg:flex lg:flex-wrap lg:justify-center
+">
+  {[
+    {
+      icon: ShieldCheck,
+      title: "Protected Dealer Margins",
+      desc: "We ensure healthy, stable margins so your business grows sustainably."
+    },
+    {
+      icon: Headphones,
+      title: "Technical Guidance & Project Support",
+      desc: "Our experts assist from planning to deployment, reducing errors and rework."
+    },
+    {
+      icon: Truck,
+      title: "Fast Local Availability",
+      desc: "Strong supply chain ensures products are always within reach."
+    },
+    {
+      icon: GraduationCap,
+      title: "Training & Certification",
+      desc: "Gain expertise with AVIXA-aligned training and brand-certified programs."
+    },
+    {
+      icon: Building2,
+      title: "Experience Centre Access",
+      desc: "Show clients real demos across Hi-Fi, cinema, commercial AV and smart home."
+    }
+  ].map((item, index) => {
+    const Icon = item.icon;
+    return (
+      <div
+        key={index}
+        className="relative p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10
+                   shadow-[0_0_40px_rgba(255,255,255,0.03)] hover:shadow-[0_0_60px_rgba(255,255,255,0.08)]
+                   transition-all duration-500 hover:-translate-y-2 group
+                   w-full md:w-auto lg:w-[30%]"
+      >
+        {/* Icon */}
+        <div className="w-14 h-14 mb-6 flex items-center justify-center rounded-2xl
+                        bg-white/10 border border-white/10 shadow-inner
+                        group-hover:bg-blue-500/20 transition-all">
+          <Icon size={32} className="opacity-80 group-hover:opacity-100 transition-opacity" />
+        </div>
 
-      {[
-        {
-          icon: ShieldCheck,
-          title: "Protected Dealer Margins",
-          desc: "We ensure healthy, stable margins so your business grows sustainably."
-        },
-        {
-          icon: Headphones,
-          title: "Technical Guidance & Project Support",
-          desc: "Our experts assist from planning to deployment, reducing errors and rework."
-        },
-        {
-          icon: Truck,
-          title: "Fast Local Availability",
-          desc: "Strong supply chain ensures products are always within reach."
-        },
-        {
-          icon: GraduationCap,
-          title: "Training & Certification",
-          desc: "Gain expertise with AVIXA-aligned training and brand-certified programs."
-        },
-        {
-          icon: Building2,
-          title: "Experience Centre Access",
-          desc: "Show clients real demos across Hi-Fi, cinema, commercial AV and smart home."
-        }
-      ].map((item, index) => {
-        const Icon = item.icon;
-        return (
-          <div
-            key={index}
-            className="relative p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10
-                       shadow-[0_0_40px_rgba(255,255,255,0.03)] hover:shadow-[0_0_60px_rgba(255,255,255,0.08)]
-                       transition-all duration-500 hover:-translate-y-2 group"
-          >
-            {/* Icon */}
-            <div className="w-14 h-14 mb-6 flex items-center justify-center rounded-2xl
-                            bg-white/10 border border-white/10 shadow-inner
-                            group-hover:bg-blue-500/20 transition-all">
-              <Icon size={32} className="opacity-80 group-hover:opacity-100 transition-opacity" />
-            </div>
+        {/* Title */}
+        <h3 className="text-xl font-semibold mb-3 group-hover:text-gray-100 transition-colors">
+          {item.title}
+        </h3>
 
-            {/* Title */}
-            <h3 className="text-xl font-semibold mb-3 group-hover:text-gray-100 transition-colors">
-              {item.title}
-            </h3>
+        {/* Description */}
+        <p className="text-gray-400 leading-relaxed">
+          {item.desc}
+        </p>
 
-            {/* Description */}
-            <p className="text-gray-400 leading-relaxed">
-              {item.desc}
-            </p>
-
-            {/* Decorative Line */}
-            <div className="mt-6 w-0 group-hover:w-20 h-[1.5px] bg-gradient-to-r from-blue-400 to-blue-200 transition-all duration-500"></div>
-          </div>
-        );
-      })}
-    </div>
-
+        {/* Decorative Line */}
+        <div className="mt-6 w-0 group-hover:w-20 h-[1.5px] bg-gradient-to-r from-[#D9D9D9] via-[#F2F2F2] to-[#BFBFBF] transition-all duration-500"></div>
+      </div>
+    );
+  })}
+</div>
     {/* CTA */}
     <div className="flex justify-center mt-20">
       <Link
@@ -298,66 +300,75 @@ const Distribution = async () => {
     </div>
 
     {/* Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+    {/* Grid */}
+<div
+  className="
+    grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+    gap-10 mb-20
+    lg:flex lg:flex-wrap lg:justify-center
+  "
+>
+  {[
+    {
+      icon: Home,
+      title: "Luxury Homes & Smart Residences",
+      desc: "Multiroom audio, architectural speakers, networking, surveillance, and automation."
+    },
+    {
+      icon: Building,
+      title: "Enterprise & Corporate Spaces",
+      desc: "Boardrooms, training rooms, townhall spaces, distributed audio."
+    },
+    {
+      icon: Hotel,
+      title: "Hotels & Hospitality",
+      desc: "Ambient audio, zone control, video distribution."
+    },
+    {
+      icon: Music2,
+      title: "Bars, Lounges & Clubs",
+      desc: "High-SPL commercial audio with sleek Italian design."
+    },
+    {
+      icon: Church,
+      title: "Houses of Worship & Large Venues",
+      desc: "Acoustics, audio distribution, speech intelligibility, and PA systems."
+    }
+  ].map((item, index) => {
+    const Icon = item.icon;
+    return (
+      <div
+        key={index}
+        className="
+          p-10 rounded-3xl bg-white shadow-[0_0_15px_rgba(0,0,0,0.08)]
+          hover:shadow-[0_0_40px_rgba(0,0,0,0.15)]
+          border border-gray-100 transition-all duration-300
+          hover:-translate-y-2 group
+          w-full md:w-auto lg:w-[30%]
+        "
+      >
+        {/* Icon */}
+        <div className="w-16 h-16 mb-8 rounded-2xl bg-black/5 flex items-center justify-center 
+                        group-hover:bg-black group-hover:text-white transition-all duration-300">
+          <Icon size={34} className="text-black group-hover:text-white transition-colors" />
+        </div>
 
-      {[
-        {
-          icon: Home,
-          title: "Luxury Homes & Smart Residences",
-          desc: "Multiroom audio, architectural speakers, networking, surveillance, and automation."
-        },
-        {
-          icon: Building,
-          title: "Enterprise & Corporate Spaces",
-          desc: "Boardrooms, training rooms, townhall spaces, distributed audio."
-        },
-        {
-          icon: Hotel,
-          title: "Hotels & Hospitality",
-          desc: "Ambient audio, zone control, video distribution."
-        },
-        {
-          icon: Music2,
-          title: "Bars, Lounges & Clubs",
-          desc: "High-SPL commercial audio with sleek Italian design."
-        },
-        {
-          icon: Church,
-          title: "Houses of Worship & Large Venues",
-          desc: "Acoustics, audio distribution, speech intelligibility, and PA systems."
-        }
-      ].map((item, index) => {
-        const Icon = item.icon;
-        return (
-          <div
-            key={index}
-            className="p-10 rounded-3xl bg-white shadow-[0_0_15px_rgba(0,0,0,0.08)]
-                       hover:shadow-[0_0_40px_rgba(0,0,0,0.15)]
-                       border border-gray-100 transition-all duration-300
-                       hover:-translate-y-2 group"
-          >
-            {/* Icon */}
-            <div className="w-16 h-16 mb-8 rounded-2xl bg-black/5 flex items-center justify-center 
-                            group-hover:bg-black group-hover:text-white transition-all duration-300">
-              <Icon size={34} className="text-black group-hover:text-white transition-colors" />
-            </div>
+        {/* Title */}
+        <h3 className="text-2xl font-semibold mb-4 group-hover:text-black transition-colors">
+          {item.title}
+        </h3>
 
-            {/* Title */}
-            <h3 className="text-2xl font-semibold mb-4 group-hover:text-black transition-colors">
-              {item.title}
-            </h3>
+        {/* Description */}
+        <p className="text-gray-600 leading-relaxed">
+          {item.desc}
+        </p>
 
-            {/* Description */}
-            <p className="text-gray-600 leading-relaxed">
-              {item.desc}
-            </p>
-
-            {/* Gold Accent Line */}
-            <div className="mt-6 w-0 group-hover:w-24 h-[2px] bg-gradient-to-r from-gray-500 to-black-300 transition-all duration-500"></div>
-          </div>
-        );
-      })}
-    </div>
+        {/* Accent Line */}
+        <div className="mt-6 w-0 group-hover:w-24 h-[2px] bg-gradient-to-r from-gray-500 to-gray-900 transition-all duration-500"></div>
+      </div>
+    );
+  })}
+</div>
 
     {/* CTA */}
     <div className="flex justify-center">
@@ -524,64 +535,75 @@ const Distribution = async () => {
     </div>
 
     {/* GRID SHOWCASE — Premium Room Images */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+    {/* GRID SHOWCASE — Premium Room Images */}
+<div
+  className="
+    grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+    gap-10 mb-20
+    lg:flex lg:flex-wrap lg:justify-center
+  "
+>
+  {[
+    {
+      title: "Hi-Fi Listening Room",
+      desc: "Experience pure, precise, high-fidelity sound in a dedicated acoustic environment.",
+      img: "/hifi.jpeg"
+    },
+    {
+      title: "Outdoor Soundscape",
+      desc: "Hear powerful, weatherproof audio crafted for gardens, pools, and outdoor luxury.",
+      img: "/ods.jpg"
+    },
+    {
+      title: "Private Home Cinema",
+      desc: "A cinematic environment tuned for Dolby Atmos demonstrations and private screenings.",
+      img: "/phc.jpg"
+    },
+    {
+      title: "Smart Home Automation",
+      desc: "Lighting, audio, and automation working together for seamless living experiences.",
+      img: "/shh.jpg"
+    },
+    {
+      title: "Commercial Audio Zones",
+      desc: "Premium commercial sound solutions for hospitality, retail, lounges, and enterprise spaces.",
+      img: "/ca.jpg"
+    }
+  ].map((item, index) => (
+    <div
+      key={index}
+      className="
+        group overflow-hidden rounded-3xl bg-white border border-gray-200
+        shadow-[0_0_15px_rgba(0,0,0,0.06)]
+        hover:shadow-[0_0_40px_rgba(0,0,0,0.12)]
+        transition-all duration-500 hover:-translate-y-2 flex flex-col
+        w-full md:w-auto lg:w-[30%]
+      "
+    >
 
-      {[
-        {
-          title: "Hi-Fi Listening Room",
-          desc: "Experience pure, precise, high-fidelity sound in a dedicated acoustic environment.",
-          img: "/hifi.jpeg"
-        },
-        {
-          title: "Outdoor Soundscape",
-          desc: "Hear powerful, weatherproof audio crafted for gardens, pools, and outdoor luxury.",
-          img: "/ods.jpg"
-        },
-        {
-          title: "Private Home Cinema",
-          desc: "A cinematic environment tuned for Dolby Atmos demonstrations and private screenings.",
-          img: "/phc.jpg"
-        },
-        {
-          title: "Smart Home Automation",
-          desc: "Lighting, audio, and automation working together for seamless living experiences.",
-          img: "/shh.jpg"
-        },
-        {
-          title: "Commercial Audio Zones",
-          desc: "Premium commercial sound solutions for hospitality, retail, lounges, and enterprise spaces.",
-          img: "/ca.jpg"
-        }
-      ].map((item, index) => (
-        <div key={index} className="group overflow-hidden rounded-3xl bg-white border border-gray-200
-                                   shadow-[0_0_15px_rgba(0,0,0,0.06)]
-                                   hover:shadow-[0_0_40px_rgba(0,0,0,0.12)]
-                                   transition-all duration-500 hover:-translate-y-2 flex flex-col">
+      {/* Image */}
+      <div className="relative h-56 w-full overflow-hidden">
+        <img 
+          src={item.img} 
+          alt={item.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+      </div>
 
-          {/* Image */}
-          <div className="relative h-56 w-full overflow-hidden">
-            <img 
-              src={item.img} 
-              alt={item.title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-          </div>
+      {/* Text */}
+      <div className="p-8 flex flex-col flex-1">
+        <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+        <p className="text-gray-600 flex-1 leading-relaxed">
+          {item.desc}
+        </p>
 
-          {/* Text */}
-          <div className="p-8 flex flex-col flex-1">
-            <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-            <p classname="text-gray-600 flex-1 leading-relaxed">
-              {item.desc}
-            </p>
-
-            {/* Gold accent */}
-            <div className="mt-6 w-0 group-hover:w-24 h-[2px] bg-gradient-to-r from-gray-500 to-black-300 transition-all duration-500"></div>
-          </div>
-
-        </div>
-      ))}
+        {/* Accent Line */}
+        <div className="mt-6 w-0 group-hover:w-24 h-[2px] bg-gradient-to-r from-gray-500 to-gray-900 transition-all duration-500"></div>
+      </div>
 
     </div>
+  ))}
+</div>
 
     {/* CTA */}
     <div className="flex justify-center">

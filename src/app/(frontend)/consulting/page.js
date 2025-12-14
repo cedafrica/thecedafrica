@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/legacy/image"
 import FadeInOnScroll from "../components/FadeInOnScroll"
@@ -41,7 +41,7 @@ const services = [
     id: 1,
     title: "High-End Residential Apartments & Private Estates",
     description:
-      "Bespoke audiovisual, acoustic and infrastructure consulting for luxury residences where performance, discretion, and architectural harmony are non-negotiable.",
+      "Bespoke residential home technology for luxury residences where performance, discretion, and architectural harmony are non-negotiable.",
     image: "/residential.jpeg",
     modalTitle: "High-End Residential Consulting",
     items: [
@@ -57,7 +57,7 @@ const services = [
     id: 2,
     title: "Large Experiential Venues",
     description:
-      "World-class AV consulting for spaces designed to inspire—houses of worship, stadiums, arenas, and event venues requiring scale, precision and emotional impact.",
+      "World-class AV consulting for spaces designed to inspire. Houses of worship, stadiums, arenas, and event venues requiring scale, precision and emotional impact.",
     image: "/how.png",
     modalTitle: "Experiential Venue Consulting",
     items: [
@@ -89,7 +89,7 @@ const services = [
     id: 4,
     title: "Tier-1 Enterprise & Institutional Environments",
     description:
-      "High-reliability AV strategy and design for elite organisations—private universities, global banks, fintech giants, telecoms, and government institutions.",
+      "We design High-reliability AV conferencing solutions and AV collaboration solutions for elite organisations—private universities, global banks, fintech giants, telecoms, and government institutions.",
     image: "/corporate.webp",
     modalTitle: "Enterprise & Institutional Consulting",
     items: [
@@ -103,13 +103,30 @@ const services = [
 ];
 
 const Consulting = () => {
+
+  // Existing state
   const [openIndex, setOpenIndex] = useState(null)
   const [activeService, setActiveService] = useState(null)
+
+  // ⭐ SLIDER HOOKS MUST BE HERE INSIDE THE COMPONENT
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide(prev => (prev === 0 ? 1 : 0))
+    }, 4000)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  const sliderImages = [
+    { src: "/residential.jpeg", caption: "Space With AV Consulting" },
+    { src: "/noav.png", caption: "Space Without AV Consulting" }
+  ]
 
   const toggle = (i) => {
     setOpenIndex(openIndex === i ? null : i)
   }
-
   return (
     <div className="bg-white">
       {/* HERO SECTION */}
@@ -129,11 +146,11 @@ const Consulting = () => {
               DESIGN FIRST. TECHNOLOGY PERFECTED.
             </p>
             <h1 className="text-3xl lg:text-5xl articulatcf font-black mb-6">
-              Premium AV Consulting for Exceptional Spaces
+            Architects of AV Excellence
             </h1>
 
             <p className="text-base lg:text-lg articulatcfLight mb-10 max-w-3xl mx-auto text-gray-200">
-              We design world-class audio-visual and acoustic experiences for spaces where performance,
+              We design world-class audio-visual experiences for spaces where performance,
               aesthetics, and reliability matter.
             </p>
 
@@ -276,7 +293,7 @@ const Consulting = () => {
                     {service.description}
                   </p>
                   <p className="text-gray-500 italic text-sm mb-6">
-                    We provide consulting, design, and documentation only. Installation is handled by your chosen integrators.
+                    We provide concept design, technical documentation, and system performance verification. Installation is handled by your chosen integrators.
                   </p>
 
                   <div className="flex flex-wrap gap-3 mt-auto">
@@ -374,21 +391,37 @@ const Consulting = () => {
       </section>
 
       {/* WHY YOU NEED AN AV CONSULTANT */}
+      
       <section className="w-full bg-white py-20">
         <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Image
-              src="/avdesign.jpg"
-              alt="AV Design Blueprint"
-              width={700}
-              height={700}
-              className="rounded-2xl shadow-lg object-cover"
-            />
-          </motion.div>
+  initial={{ opacity: 0, x: -40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6 }}
+  className="relative w-full h-[480px] rounded-2xl overflow-hidden shadow-xl"
+>
+  {sliderImages.map((item, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: currentSlide === index ? 1 : 0 }}
+      transition={{ duration: 1.2, ease: "easeInOut" }}
+      className="absolute inset-0 w-full h-full"
+    >
+      <Image
+        src={item.src}
+        alt={item.caption}
+        layout="fill"
+        objectFit="cover"
+      />
+
+      {/* Luxury Caption */}
+      <div className="absolute bottom-6 left-6 bg-black/40 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium tracking-wide shadow-lg">
+        {item.caption}
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
 
           <div>
             <motion.h2
@@ -397,7 +430,7 @@ const Consulting = () => {
               transition={{ duration: 0.4 }}
               className="text-3xl lg:text-4xl font-black text-gray-900 mb-4"
             >
-              The risks of skipping AV consulting.
+              The risks of Ignoring AV consulting.
             </motion.h2>
 
             <motion.div
@@ -516,68 +549,103 @@ const Consulting = () => {
 
       {/* METHODOLOGY / PROCESS */}
       <section data-light className="bg-gray-100 py-24 relative">
-        <div className="container-fluid px-6">
-          <FadeInOnScroll>
-            <h2 className="text-4xl lg:text-3xl articulatcf font-black text-black text-center mb-20">
-              Our Methodology
-            </h2>
-          </FadeInOnScroll>
+  <div className="container-fluid px-6">
+    <FadeInOnScroll>
+      <h2 className="text-4xl lg:text-3xl articulatcf font-black text-black text-center mb-20">
+        Our Methodology
+      </h2>
+    </FadeInOnScroll>
 
-          <div className="relative max-w-4xl mx-auto before:absolute before:top-0 before:left-1/2 before:h-full before:w-1 before:-translate-x-1/2 before:bg-gray-200">
-            {[
-              {
-                number: "1",
-                title: "Client Discovery",
-                description:
-                  "We begin by understanding the project vision, functional requirements, and client expectations.",
-              },
-              {
-                number: "2",
-                title: "AV Design",
-                description:
-                  "Our team develops a tailored AV concept, defining system architecture, performance goals, and integration pathways.",
-              },
-              {
-                number: "3",
-                title: "Tender Document Proposal",
-                description:
-                  "We prepare structured tender documents, equipment lists, and specifications to guide accurate quoting and partner alignment.",
-              },
-              {
-                number: "4",
-                title: "Engineered Drawings",
-                description:
-                  "We produce complete engineering drawings coordinated with MEP, architectural layouts, and interior design requirements.",
-              },
-            ].map((step, index) => (
-              <FadeInOnScroll key={step.number} className="relative mb-12">
-                <div
-                  className={`flex flex-col md:flex-row items-center md:items-start ${
-                    index % 2 === 0 ? "md:flex-row-reverse" : ""
-                  }`}
-                >
-                  <div className="flex-shrink-0 w-12 h-12 bg-black text-white rounded-full flex items-center justify-center articulatcf font-black text-xl z-10">
-                    {step.number}
-                  </div>
+    <div className="relative max-w-4xl mx-auto before:absolute before:top-0 before:left-1/2 before:h-full before:w-1 before:-translate-x-1/2 before:bg-gray-200">
+      {[
+        {
+          number: "1",
+          title: "Client Discovery",
+          description:
+            "We begin by understanding the client’s vision, lifestyle needs, functional requirements, and project expectations.",
+        },
+        {
+          number: "2",
+          title: "Conceptual Design",
+          description:
+            "We develop a clear AV concept—outlining system architecture, experience flow, equipment direction, and coordination requirements.",
+        },
+        {
+          number: "3",
+          title: "Technical Documentation",
+          description:
+            "We produce detailed drawings, schematics, specifications, and structured plans that guide integrators and design partners.",
+        },
+        {
+          number: "4",
+          title: "System Performance Verification",
+          description:
+            "We ensure every system performs as designed through validation, calibration oversight, and project sign-off checks.",
+        },
+      ].map((step, index) => (
+        <FadeInOnScroll key={step.number} className="relative mb-12">
+          <div
+            className={`flex flex-col md:flex-row items-center md:items-start ${
+              index % 2 === 0 ? "md:flex-row-reverse" : ""
+            }`}
+          >
+            <div className="flex-shrink-0 w-12 h-12 bg-black text-white rounded-full flex items-center justify-center articulatcf font-black text-xl z-10">
+              {step.number}
+            </div>
 
-                  <div
-                    className={`bg-white p-6 rounded-lg shadow-md max-w-md md:mx-8 ${
-                      index % 2 === 0 ? "md:ml-8" : "md:mr-8"
-                    }`}
-                  >
-                    <h3 className="text-xl articulatcf font-black text-black mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-base articulatcfLight text-gray-700">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              </FadeInOnScroll>
-            ))}
+            <div
+              className={`bg-white p-6 rounded-lg shadow-md max-w-md md:mx-8 ${
+                index % 2 === 0 ? "md:ml-8" : "md:mr-8"
+              }`}
+            >
+              <h3 className="text-xl articulatcf font-black text-black mb-2">
+                {step.title}
+              </h3>
+              <p className="text-base articulatcfLight text-gray-700">
+                {step.description}
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </FadeInOnScroll>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section className="w-full bg-white py-24">
+  <div className="container mx-auto px-6 text-center">
+
+    {/* Header */}
+    <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4 articulatcf">
+      Explore Our Featured Projects
+    </h2>
+
+    {/* Short Description */}
+    <p className="text-gray-600 text-base lg:text-lg max-w-2xl mx-auto articulatcfLight mb-10">
+      From ultra-luxury residences to high-performance commercial spaces, our AV designs
+      are crafted to elevate architecture, enhance lifestyle, and deliver uncompromising
+      technical excellence.
+    </p>
+
+    {/* CTA Button */}
+    <Link
+      href="/projects"
+      target="_blank"
+      className="inline-flex  items-center gap-3 rounded-full border border-black text-black px-8 py-3 transition-all duration-300 hover:bg-black hover:text-white hover-btn"
+    >
+      <span>View Projects</span>
+      <Image
+        src="/blackarrow.svg"
+        alt="arrow"
+        width={16}
+        height={16}
+        className="transition-transform duration-300 group-hover:-rotate-45"
+      />
+    </Link>
+
+  </div>
+</section>
+
 
       {/* CTA SECTION */}
       <section className="relative overflow-hidden py-28 bg-black text-white">
