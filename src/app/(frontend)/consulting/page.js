@@ -2,38 +2,45 @@
 
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/legacy/image"
+import Image from "next/image"
+
 import FadeInOnScroll from "../components/FadeInOnScroll"
 import { motion, AnimatePresence } from "framer-motion"
 
 // Risks accordion content
 const problems = [
   {
-    title: "Poor Performance",
+    title: "Misaligned Client Expectations",
     description:
-      "Speakers, microphones, and displays do not deliver as intended because room acoustics, placement, and system design were not considered.",
+      "Without proper client discovery, AV systems are designed on assumptions rather than real needs, leading to solutions that fail to match how the space is actually used."
   },
   {
-    title: "Design Conflicts",
+    title: "Flawed Experience Design",
     description:
-      "Technology interferes with architecture, furniture layout, or interior finishes when AV is not coordinated early.",
+      "Skipping conceptual design results in fragmented systems with no clear experience flow, where technology exists—but does not enhance performance, comfort, or usability."
   },
   {
-    title: "Wasted Budget",
+    title: "Costly Design Conflicts",
     description:
-      "Expensive equipment gets installed incorrectly, duplicated, or placed where it never performs at its full potential.",
+      "Without early AV coordination, technology clashes with architecture, interior layouts, and MEP systems, forcing compromises that weaken both design intent and system performance."
+  },
+  {
+    title: "Budget Waste & Rework",
+    description:
+      "The absence of technical documentation leads to incorrect equipment selection, duplicated infrastructure, and installations that require expensive corrections after deployment."
   },
   {
     title: "Project Delays",
     description:
-      "Integrators improvise on-site, forcing redesigns and slowing construction because there’s no unified AV plan.",
+      "When integrators lack clear drawings and specifications, decisions are made on-site, slowing construction timelines and introducing avoidable technical risks."
   },
   {
-    title: "No Future-Proofing",
+    title: "Unverified System Performance",
     description:
-      "Systems cannot expand or upgrade without heavy reconstruction when proper documentation and structured design are missing.",
-  },
+      "Without system performance verification, issues remain hidden until after handover—resulting in poor audio, unreliable control, and unresolved faults that impact daily use."
+  }
 ]
+
 
 // Services + modal breakdown
 const services = [
@@ -293,7 +300,7 @@ const Consulting = () => {
                     {service.description}
                   </p>
                   <p className="text-gray-500 italic text-sm mb-6">
-                    We provide concept design, technical documentation, and system performance verification. Installation is handled by your chosen integrators.
+                    We support you from understanding your needs to designing and validating a complete solution. Installation is handled by a qualified system integrator.
                   </p>
 
                   <div className="flex flex-wrap gap-3 mt-auto">
@@ -351,15 +358,12 @@ const Consulting = () => {
               </h2>
 
               <p className="text-gray-300 articulatcfLight leading-relaxed mb-6">
-                CED is Nigeria’s first dedicated AV consulting firm, guiding ultra-high-end
-                residential projects, enterprise powerhouses, premium hospitality & lifestyle
-                spaces, and large congregational venues.
+                CED Africa is Nigeria’s first indigenous AV consulting firm, guiding High-End Residential Apartments & Private Estates, Large Experiential Venues, Premium Hospitality & Lifestyle Spaces, Tier-1 Enterprise & Institutional Environments
               </p>
 
               <p className="text-gray-300 articulatcfLight leading-relaxed mb-6">
                 We provide <span className="text-white font-semibold">consulting and design</span>{" "}
-                for the AV backbone of your space—from acoustics and structured wiring to room
-                optimization, technical documentation, and system standards—ensuring every decision
+                for the AV backbone of your space—from client discovey to conceptual design, technical documentation and system performance verification, ensuring every decision
                 is informed, coordinated, and future-proof.
               </p>
 
@@ -411,8 +415,8 @@ const Consulting = () => {
       <Image
         src={item.src}
         alt={item.caption}
-        layout="fill"
-        objectFit="cover"
+        fill
+        className="object-cover"
       />
 
       {/* Luxury Caption */}
@@ -430,7 +434,7 @@ const Consulting = () => {
               transition={{ duration: 0.4 }}
               className="text-3xl lg:text-4xl font-black text-gray-900 mb-4"
             >
-              The risks of Ignoring AV consulting.
+              The Risks of Skipping Professional AV Consulting
             </motion.h2>
 
             <motion.div
@@ -439,7 +443,7 @@ const Consulting = () => {
               transition={{ duration: 0.5 }}
               className="mt-10 border-l-4 border-gray-900 pl-4 my-6 text-gray-800 italic text-sm"
             >
-              At CED, we prevent these issues before they happen—protecting your investment, your
+              At CED Africa, we prevent these issues before they happen—protecting your investment, your
               space, and your experience.
             </motion.div>
 
@@ -458,19 +462,18 @@ const Consulting = () => {
                       {openIndex === i ? "×" : "+"}
                     </span>
                   </button>
-                  <AnimatePresence>
-                    {openIndex === i && (
-                      <motion.p
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="text-gray-600 mt-3"
-                      >
-                        {item.description}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
+                  <AnimatePresence initial={false}>
+  {openIndex === i && (
+    <motion.div
+    layout
+    key={`problem-${i}`}
+    className="mt-3 text-sm leading-relaxed text-gray-600"
+  >
+    {item.description}
+  </motion.div>
+  )}
+</AnimatePresence>
+
                 </div>
               ))}
             </div>
