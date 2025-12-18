@@ -64,7 +64,7 @@ const services = [
     id: 2,
     title: "Large Experiential Venues",
     description:
-      "World-class AV consulting for spaces designed to inspire. Houses of worship, stadiums, arenas, and event venues requiring scale, precision and emotional impact.",
+      "World-class AV consulting for spaces designed to inspire. House of worship, stadiums, arenas, concert halls and event spaces requiring scale, precision and emotional impact.",
     image: "/how.png",
     modalTitle: "Experiential Venue Consulting",
     items: [
@@ -96,7 +96,7 @@ const services = [
     id: 4,
     title: "Tier-1 Enterprise & Institutional Environments",
     description:
-      "We design High-reliability AV conferencing solutions and AV collaboration solutions for elite organisations—private universities, global banks, fintech giants, telecoms, and government institutions.",
+      "We design Smart AV conferencing and collaboration solutions for elite organisations. Private universities, global banks, fintech giants, telecoms, and government institutions.",
     image: "/corporate.webp",
     modalTitle: "Enterprise & Institutional Consulting",
     items: [
@@ -150,15 +150,15 @@ const Consulting = () => {
         <div className="relative container-fluid px-6 text-center">
           <FadeInOnScroll>
             <p className="text-base lg:text-lg articulatcfLight mb-10 max-w-3xl mx-auto text-gray-200">
-              DESIGN FIRST. TECHNOLOGY PERFECTED.
+              DESIGN FIRST. TECHNOLOGY PERFECTED. EXPERIENCE DELIVERED
             </p>
             <h1 className="text-3xl lg:text-5xl articulatcf font-black mb-6">
             Architects of AV Excellence
             </h1>
 
             <p className="text-base lg:text-lg articulatcfLight mb-10 max-w-3xl mx-auto text-gray-200">
-              We design world-class audio-visual experiences for spaces where performance,
-              aesthetics, and reliability matter.
+              We curate world-class audio-visual solutions for spaces wheress experience, expertise and execution
+              are uncompromised.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -272,10 +272,10 @@ const Consulting = () => {
       <section className="bg-gray-50 py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900 text-center mb-4">
-            CED Consulting Services
+            Our AV Consulting Services
           </h2>
           <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
-            Designing Audiovisual Experiences That Shape Moments        </p>
+            Designing Audio-Visual Solutions That Shape Moments        </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
@@ -300,7 +300,7 @@ const Consulting = () => {
                     {service.description}
                   </p>
                   <p className="text-gray-500 italic text-sm mb-6">
-                    We support you from understanding your needs to designing and validating a complete solution. Installation is handled by a qualified system integrator.
+                    We support you from understanding your needs to designing and validating a complete solution. Integration to be handled by approved system integrator.
                   </p>
 
                   <div className="flex flex-wrap gap-3 mt-auto">
@@ -353,18 +353,17 @@ const Consulting = () => {
 
           <FadeInOnScroll direction="right">
             <div>
-              <h2 className="text-2xl lg:text-4xl articulatcf font-black mb-6">
-                Nigeria’s First Independent AV Consultancy
+              <h2 className="text-2xl lg:text-3xl articulatcf font-black mb-6">
+                Nigeria’s First Independent AV Consultance
               </h2>
 
               <p className="text-gray-300 articulatcfLight leading-relaxed mb-6">
-                CED Africa is Nigeria’s first indigenous AV consulting firm, guiding High-End Residential Apartments & Private Estates, Large Experiential Venues, Premium Hospitality & Lifestyle Spaces, Tier-1 Enterprise & Institutional Environments
+                CED Africa is Nigeria’s first indigenous AV consulting firm, guiding High-End Residential Apartments & Private Estates, Large Experiential Venues, Premium Hospitality & Lifestyle Spaces, Tier-1 Enterprise & Institutional Environments to globally benchmarked audiovisual experiences.
               </p>
 
               <p className="text-gray-300 articulatcfLight leading-relaxed mb-6">
-                We provide <span className="text-white font-semibold">consulting and design</span>{" "}
-                for the AV backbone of your space—from client discovey to conceptual design, technical documentation and system performance verification, ensuring every decision
-                is informed, coordinated, and future-proof.
+                We <span className="text-white font-semibold">consult and design</span>{" "}
+                the AV solution for your space. From client discovey to conceptual design, technical documentation and system performance verification, ensuring the AV systems align with client expectations and deliver the intended experience without compromise.
               </p>
 
              
@@ -434,18 +433,10 @@ const Consulting = () => {
               transition={{ duration: 0.4 }}
               className="text-3xl lg:text-4xl font-black text-gray-900 mb-4"
             >
-              The Risks of Skipping Professional AV Consulting
+              Why AV Consulting Is Not Optional
             </motion.h2>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mt-10 border-l-4 border-gray-900 pl-4 my-6 text-gray-800 italic text-sm"
-            >
-              At CED Africa, we prevent these issues before they happen—protecting your investment, your
-              space, and your experience.
-            </motion.div>
+            
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {problems.map((item, i) => (
@@ -453,6 +444,7 @@ const Consulting = () => {
                   key={i}
                   className="border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all bg-white"
                 >
+                  
                   <button
                     onClick={() => toggle(i)}
                     className="w-full flex justify-between items-center"
@@ -477,7 +469,15 @@ const Consulting = () => {
                 </div>
               ))}
             </div>
-
+              <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mt-10 border-l-4 border-gray-900 pl-4 my-6 text-gray-800 italic text-sm"
+            >
+              At CED Africa, we prevent these issues before they happen, protecting your investment, your
+              space, and your experience.
+            </motion.div>
             <Link
               href="#"
               onClick={(e) => {
