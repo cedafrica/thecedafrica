@@ -157,7 +157,7 @@ const Consulting = () => {
             </h1>
 
             <p className="text-base lg:text-lg articulatcfLight mb-10 max-w-3xl mx-auto text-gray-200">
-              We curate world-class audio-visual solutions for spaces wheress experience, expertise and execution
+              We curate world-class audio-visual solutions for spaces where experience, expertise and execution
               are uncompromised.
             </p>
 
