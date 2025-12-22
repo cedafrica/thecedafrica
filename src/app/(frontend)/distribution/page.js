@@ -4,7 +4,7 @@ export const revalidate = 0
 export const fetchCache = 'force-no-store'
 
 import React from 'react'
-import { getPayload } from '../../lib/payloadServer'
+
 
 import BrandTab from '../components/BrandTab'
 import Link from 'next/link'
@@ -31,7 +31,7 @@ import {
 } from 'lucide-react'
 
 const Distribution = async () => {
-  const payload = await getPayload()
+ 
 
   const brandsCollection = await payload.find({
     collection: 'brands',
