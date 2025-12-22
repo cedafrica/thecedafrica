@@ -1,16 +1,16 @@
 "use client"
-export const dynamic = 'force-dynamic'
-export const runtime = 'nodejs'
-export const revalidate = 0
-export const fetchCache = 'force-no-store'
 
-import React from 'react'
-import { getPayload } from '../../lib/payloadServer'
+import React, { useState, useEffect } from "react"
+import Link from "next/link"
+
+
+import FadeInOnScroll from "../components/FadeInOnScroll"
+import { motion, AnimatePresence } from "framer-motion"
 
 import BrandTab from '../components/BrandTab'
-import Link from 'next/link'
+
 import Image from 'next/legacy/image'
-import FadeInOnScroll from '../components/FadeInOnScroll'
+
 
 import {
   Headphones,
@@ -32,14 +32,7 @@ import {
 } from 'lucide-react'
 
 const Distribution = async () => {
-  const payload = await getPayload()
-
-  const brandsCollection = await payload.find({
-    collection: 'brands',
-    depth: 1,
-    sort: 'createdAt',
-    limit: 0,
-  })
+  
 
   const groupedBrands = brandsCollection.docs.reduce(
     (acc, brand) => {
