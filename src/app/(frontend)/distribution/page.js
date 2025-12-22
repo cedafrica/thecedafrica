@@ -64,7 +64,7 @@ const Distribution = async () => {
   <div className="relative flex flex-col items-center justify-center text-center px-6 py-20 w-full h-full max-w-4xl">
     <FadeInOnScroll>
       <h1 className="text-3xl md:text-4xl lg:text-4xl articulatcf font-black mb-4 text-white">
-        AV Distribution for High-End Projects
+        AV Distribution for High-End Project
       </h1>
 
      <p className="text-lg md:text-xl text-gray-200 max-w-2xl mb-8 text-center mx-auto">
