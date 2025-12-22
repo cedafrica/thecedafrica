@@ -1,13 +1,18 @@
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+export const revalidate = 0
+
 import React from 'react'
-import configPromise from '@payload-config'
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from '@/lib/payloadServer'
+
 import Carousel from '../components/Carousel'
 import ContactUs from '../components/ContactUs'
 import JoinTeam from '../components/JoinTeam'
 import FadeInOnScroll from '../components/FadeInOnScroll'
 
 const Contact = async () => {
-  const payload = await getPayloadHMR({ config: configPromise })
+  const payload = await getPayload()
+
 
   const headerCollection = await payload.find({
     collection: 'headers',
