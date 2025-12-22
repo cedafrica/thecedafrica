@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server'
-import { getPayload } from '../../../lib/payloadServer'
-
+import payload from 'payload'
 
 export async function GET() {
   try {
-    const payload = await getPayload()
+    if (!payload.__initialized) {
+      const { default: config } = await import('@payload-config')
+      await payload.init({ config })
+      payload.__initialized = true
+    }
 
     const servicesCollection = await payload.find({
       collection: 'services',
@@ -12,15 +15,9 @@ export async function GET() {
       sort: 'createdAt',
     })
 
-    return NextResponse.json({
-      docs: servicesCollection.docs ?? [],
-    })
+    return NextResponse.json(servicesCollection)
   } catch (error) {
     console.error('Error fetching services:', error)
-
-    return NextResponse.json(
-      { docs: [], error: 'Failed to fetch services' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to fetch services' }, { status: 500 })
   }
 }
