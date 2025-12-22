@@ -1,13 +1,18 @@
-
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 export const revalidate = 0
 export const fetchCache = 'force-no-store'
+
 import React from 'react'
+import { getPayload } from '../../lib/payloadServer'
+
 import BrandTab from '../components/BrandTab'
 import Link from 'next/link'
 import Image from 'next/legacy/image'
 import FadeInOnScroll from '../components/FadeInOnScroll'
-import { Headphones,
+
+import {
+  Headphones,
   Users,
   Hotel,
   Music2,
@@ -22,17 +27,11 @@ import { Headphones,
   ShieldCheck,
   Home,
   Package,
-  GraduationCap
- } from "lucide-react"
+  GraduationCap,
+} from 'lucide-react'
 
 const Distribution = async () => {
-
-  // ⭐ REQUIRED for Payload to work
-  if (!payload.__initialized) {
-    const { default: config } = await import('@payload-config')
-    await payload.init({ config })
-    payload.__initialized = true
-  }
+  const payload = await getPayload()
 
   const brandsCollection = await payload.find({
     collection: 'brands',
@@ -41,12 +40,15 @@ const Distribution = async () => {
     limit: 0,
   })
 
-  const groupedBrands = brandsCollection.docs.reduce((acc, brand) => {
-    const type = brand.brandType
-    if (!acc[type]) acc[type] = []
-    acc[type].push(brand)
-    return acc
-  }, {})
+  const groupedBrands = brandsCollection.docs.reduce(
+    (acc, brand) => {
+      const type = brand.brandType
+      if (!acc[type]) acc[type] = []
+      acc[type].push(brand)
+      return acc
+    },
+    {}
+  )
 
   const types = Object.keys(groupedBrands)
     
