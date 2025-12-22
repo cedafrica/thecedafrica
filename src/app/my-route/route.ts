@@ -1,14 +1,26 @@
+import { NextResponse } from 'next/server'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
-export const GET = async () => {
-  const payload = await getPayload({
-    config: configPromise,
-  })
+export const runtime = 'nodejs' // 🔥 THIS IS THE KEY FIX
 
-  const data = await payload.find({
-    collection: 'users',
-  })
+export async function GET() {
+  try {
+    const payload = await getPayload({
+      config: configPromise,
+    })
 
-  return Response.json(data)
+    const data = await payload.find({
+      collection: 'users',
+    })
+
+    return NextResponse.json(data)
+  } catch (error) {
+    console.error('Payload API error:', error)
+
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    )
+  }
 }
