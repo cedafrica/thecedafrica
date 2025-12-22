@@ -4,8 +4,6 @@ export const revalidate = 0
 export const fetchCache = 'force-no-store'
 
 import React from 'react'
-
-
 import BrandTab from '../components/BrandTab'
 import Link from 'next/link'
 import Image from 'next/legacy/image'
@@ -31,27 +29,18 @@ import {
 } from 'lucide-react'
 
 const Distribution = async () => {
- 
+  // 🔴 MOCK DATA — NO PAYLOAD
+  const groupedBrands = {
+    audio: [
+      { id: 1, title: 'Brand A' },
+      { id: 2, title: 'Brand B' },
+    ],
+    video: [
+      { id: 3, title: 'Brand C' },
+    ],
+  }
 
-  const brandsCollection = await payload.find({
-    collection: 'brands',
-    depth: 1,
-    sort: 'createdAt',
-    limit: 0,
-  })
-
-  const groupedBrands = brandsCollection.docs.reduce(
-    (acc, brand) => {
-      const type = brand.brandType
-      if (!acc[type]) acc[type] = []
-      acc[type].push(brand)
-      return acc
-    },
-    {}
-  )
-
-  const types = Object.keys(groupedBrands)
-    
+  const types = Object.keys(groupedBrands)    
   return (
     <div className="bg-white">
       {/* Hero Section */}
