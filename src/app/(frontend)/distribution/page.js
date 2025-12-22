@@ -1,728 +1,697 @@
-"use client"
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+export const revalidate = 0
+export const fetchCache = 'force-no-store'
 
-import React, { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
+import React from 'react'
+import { getPayload } from '../../lib/payloadServer'
 
-import FadeInOnScroll from "../components/FadeInOnScroll"
-import { motion, AnimatePresence } from "framer-motion"
+import BrandTab from '../components/BrandTab'
+import Link from 'next/link'
+import Image from 'next/legacy/image'
+import FadeInOnScroll from '../components/FadeInOnScroll'
 
-// Risks accordion content
-const problems = [
-  {
-    title: "Misaligned Client Expectations",
-    description:
-      "Without proper client discovery, AV systems are designed on assumptions rather than real needs, leading to solutions that fail to match how the space is actually used."
-  },
-  {
-    title: "Flawed Experience Design",
-    description:
-      "Skipping conceptual design results in fragmented systems with no clear experience flow, where technology exists—but does not enhance performance, comfort, or usability."
-  },
-  {
-    title: "Costly Design Conflicts",
-    description:
-      "Without early AV coordination, technology clashes with architecture, interior layouts, and MEP systems, forcing compromises that weaken both design intent and system performance."
-  },
-  {
-    title: "Budget Waste & Rework",
-    description:
-      "The absence of technical documentation leads to incorrect equipment selection, duplicated infrastructure, and installations that require expensive corrections after deployment."
-  },
-  {
-    title: "Project Delays",
-    description:
-      "When integrators lack clear drawings and specifications, decisions are made on-site, slowing construction timelines and introducing avoidable technical risks."
-  },
-  {
-    title: "Unverified System Performance",
-    description:
-      "Without system performance verification, issues remain hidden until after handover—resulting in poor audio, unreliable control, and unresolved faults that impact daily use."
-  }
-]
+import {
+  Headphones,
+  Users,
+  Hotel,
+  Music2,
+  DollarSign,
+  UserCheck,
+  BadgePercent,
+  Star,
+  Church,
+  Truck,
+  Building2,
+  Building,
+  ShieldCheck,
+  Home,
+  Package,
+  GraduationCap,
+} from 'lucide-react'
 
+const Distribution = async () => {
+  const payload = await getPayload()
 
-// Services + modal breakdown
-const services = [
-  {
-    id: 1,
-    title: "High-End Residential Apartments & Private Estates",
-    description:
-      "Bespoke residential home technology for luxury residences where performance, discretion, and architectural harmony are non-negotiable.",
-    image: "/residential.jpeg",
-    modalTitle: "High-End Residential Consulting",
-    items: [
-      "Private cinema & immersive media room design",
-      "Multi-room audio, control & smart home infrastructure planning",
-      "Architectural acoustic modelling & treatment guidance",
-      "Hidden technology integration & interior coordination",
-      "Structured wiring, rack architecture & equipment flow design"
-    ]
-  },
+  const brandsCollection = await payload.find({
+    collection: 'brands',
+    depth: 1,
+    sort: 'createdAt',
+    limit: 0,
+  })
 
-  {
-    id: 2,
-    title: "Large Experiential Venues",
-    description:
-      "World-class AV consulting for spaces designed to inspire. House of worship, stadiums, arenas, concert halls and event spaces requiring scale, precision and emotional impact.",
-    image: "/how.png",
-    modalTitle: "Experiential Venue Consulting",
-    items: [
-      "Large-scale sound reinforcement design & coverage optimisation",
-      "Acoustic clarity modelling for speech and live music",
-      "Control room, stage audio and broadcast signal flow design",
-      "LED, projection & venue-wide video distribution planning",
-      "Technical documentation, tender packages & integrator alignment"
-    ]
-  },
+  const groupedBrands = brandsCollection.docs.reduce(
+    (acc, brand) => {
+      const type = brand.brandType
+      if (!acc[type]) acc[type] = []
+      acc[type].push(brand)
+      return acc
+    },
+    {}
+  )
 
-  {
-    id: 3,
-    title: "Premium Hospitality & Lifestyle Spaces",
-    description:
-      "Atmosphere-driven AV experiences for ultra-modern lounges, nightclubs, restaurants, hotels, museums and lifestyle destinations.",
-    image: "/kilala.jpg",
-    modalTitle: "Hospitality & Lifestyle Consulting",
-    items: [
-      "Multi-zone BGM & foreground audio experience mapping",
-      "Acoustic modelling for vibrant entertainment environments",
-      "Networked AV architecture & equipment specification",
-      "Lighting, ambiance & experience-led system integration planning",
-      "Tender documentation & coordination with design partners"
-    ]
-  },
-
-  {
-    id: 4,
-    title: "Tier-1 Enterprise & Institutional Environments",
-    description:
-      "We design Smart AV conferencing and collaboration solutions for elite organisations. Private universities, global banks, fintech giants, telecoms, and government institutions.",
-    image: "/corporate.webp",
-    modalTitle: "Enterprise & Institutional Consulting",
-    items: [
-      "Executive boardroom AV strategy & presentation intelligence",
-      "Enterprise-wide video conferencing & collaboration ecosystems",
-      "Lecture theatres, auditoriums & learning environment design",
-      "Acoustic optimisation for corporate performance environments",
-      "Full engineering documentation for seamless integration"
-    ]
-  }
-];
-
-const Consulting = () => {
-
-  // Existing state
-  const [openIndex, setOpenIndex] = useState(null)
-  const [activeService, setActiveService] = useState(null)
-
-  // ⭐ SLIDER HOOKS MUST BE HERE INSIDE THE COMPONENT
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide(prev => (prev === 0 ? 1 : 0))
-    }, 4000)
-
-    return () => clearInterval(timer)
-  }, [])
-
-  const sliderImages = [
-    { src: "/residential.jpeg", caption: "Space With AV Consulting" },
-    { src: "/noav.png", caption: "Space Without AV Consulting" }
-  ]
-
-  const toggle = (i) => {
-    setOpenIndex(openIndex === i ? null : i)
-  }
+  const types = Object.keys(groupedBrands)
+    
   return (
     <div className="bg-white">
-      {/* HERO SECTION */}
+      {/* Hero Section */}
       <section
-        className="relative h-screen w-full flex items-center justify-center text-white bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/consult.webp')",
-          backgroundAttachment: "",
-        }}
-      >
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
-
-        <div className="relative container-fluid px-6 text-center">
-          <FadeInOnScroll>
-            <p className="text-base lg:text-lg articulatcfLight mb-10 max-w-3xl mx-auto text-gray-200">
-              DESIGN FIRST. TECHNOLOGY PERFECTED. EXPERIENCE DELIVERED
-            </p>
-            <h1 className="text-3xl lg:text-5xl articulatcf font-black mb-6">
-            Architects of AV Excellence
-            </h1>
-
-            <p className="text-base lg:text-lg articulatcfLight mb-10 max-w-3xl mx-auto text-gray-200">
-              We curate world-class audio-visual solutions for spaces where experience, expertise and execution
-              are uncompromised.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="https://forms.zohopublic.com/cedafrica1/form/CEDAFRICATRADEPARTNERREGISTRATION/formperma/GjW-gerRT7hXlJQd4HTw7SzZo9YZkQ4nIuC9Yapk-q8"
-                target="_blank"
-                className="group inline-flex items-center gap-4 rounded-full border border-white text-white px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
-              >
-                <span>Become a Trade Partner</span>
-                <Image
-                  src="/whitearrow.svg"
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:-rotate-45"
-                />
-              </Link>
-
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault()
-                  const element = document.getElementById("ctas")
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" })
-                  }
-                }}
-                className="group inline-flex items-center gap-4 rounded-full border border-white text-white bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
-              >
-                <span>Let’s Design Your Next Project</span>
-                <Image
-                  src="/whitearrow.svg"
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:-rotate-45"
-                />
-              </Link>
-            </div>
-          </FadeInOnScroll>
-        </div>
-      </section>
-      {/* MODAL – Fade + Zoom from Center */}
-        <AnimatePresence>
-          {activeService && (
-            <motion.div
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setActiveService(null)}
-            >
-              <motion.div
-                className="bg-white rounded-2xl p-6 md:p-8 max-w-lg w-full relative shadow-2xl"
-                initial={{ scale: 0.85, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.85, opacity: 0 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Close button */}
-                <button
-                  onClick={() => setActiveService(null)}
-                  className="absolute top-3 right-4 text-2xl leading-none text-gray-500 hover:text-black"
-                  aria-label="Close"
-                >
-                  ×
-                </button>
-
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-black">
-                  {activeService.modalTitle || activeService.title}
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  A deeper breakdown of what this service covers:
-                </p>
-
-                <ul className="list-disc list-inside space-y-2 text-gray-800 mb-6 text-sm md:text-base">
-                  {activeService.items.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-
-                <div className="flex flex-wrap gap-3">
-                  <button
-                    onClick={() => setActiveService(null)}
-                    className="inline-flex items-center justify-center rounded-full border border-gray-300 px-5 py-2 text-sm md:text-base text-gray-700 hover:bg-gray-100"
-                  >
-                    Close
-                  </button>
-                  <Link
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      setActiveService(null)
-                      const element = document.getElementById("ctas")
-                      if (element) {
-                        element.scrollIntoView({ behavior: "smooth" })
-                      }
-                    }}
-                    className="inline-flex items-center justify-center rounded-full border border-black bg-black text-white px-5 py-2 text-sm md:text-base hover:bg-white hover:text-black transition-all"
-                  >
-                    Discuss This Service
-                  </Link>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-      {/* 🔹 SERVICES SECTION WITH MODALS (JUST AFTER HERO) */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900 text-center mb-4">
-            Our AV Consulting Services
-          </h2>
-          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
-            Designing Audio-Visual Solutions That Shape Moments        </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className="relative bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col"
-              >
-                <div className="w-full h-72 overflow-hidden">
-                  {/* You can replace <img> with <Image> later if you like */}
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-
-                <div className="p-8 flex flex-col flex-1">
-                  <h3 className="text-2xl font-semibold text-black mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-700 mb-4">
-                    {service.description}
-                  </p>
-                  <p className="text-gray-500 italic text-sm mb-6">
-                    We support you from understanding your needs to designing and validating a complete solution. Integration to be handled by approved system integrator.
-                  </p>
-
-                  <div className="flex flex-wrap gap-3 mt-auto">
-                    {/* Scroll CTA */}
-                    <Link
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        const element = document.getElementById("ctas")
-                        if (element) {
-                          element.scrollIntoView({ behavior: "smooth" })
-                        }
-                      }}
-                      className="group inline-flex items-center gap-2 rounded-full border border-black text-black bg-transparent px-5 py-2.5 text-sm md:text-base transition-all duration-300 hover:bg-black hover:text-white hover-btn"
-                    >
-                      <span>Let’s Design Your Next Project</span>
-                      <Image
-                        src="/blackarrow.svg"
-                        alt="arrow"
-                        width={14}
-                        height={14}
-                        className="transition-transform duration-300 group-hover:-rotate-45"
-                      />
-                    </Link>
-
-                    {/* Modal trigger */}
-                    
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        
-      </section>
-
-      {/* ABOUT CED SECTION */}
-      <section className="w-full py-20 bg-black text-white">
-        <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <FadeInOnScroll direction="left">
-            <div className="w-full h-[420px] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="/dist.jpeg"
-                alt="About CED"
-                className="w-full h-full object-cover scale-105 hover:scale-110 transition-all duration-700 ease-out"
-              />
-            </div>
-          </FadeInOnScroll>
-
-          <FadeInOnScroll direction="right">
-            <div>
-              <h2 className="text-2xl lg:text-3xl articulatcf font-black mb-6">
-                Nigeria’s First Independent AV Consultance
-              </h2>
-
-              <p className="text-gray-300 articulatcfLight leading-relaxed mb-6">
-                CED Africa is Nigeria’s first indigenous AV consulting firm, guiding High-End Residential Apartments & Private Estates, Large Experiential Venues, Premium Hospitality & Lifestyle Spaces, Tier-1 Enterprise & Institutional Environments to globally benchmarked audiovisual experiences.
-              </p>
-
-              <p className="text-gray-300 articulatcfLight leading-relaxed mb-6">
-                We <span className="text-white font-semibold">consult and design</span>{" "}
-                the AV solution for your space. From client discovey to conceptual design, technical documentation and system performance verification, ensuring the AV systems align with client expectations and deliver the intended experience without compromise.
-              </p>
-
-             
-
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault()
-                  const element = document.getElementById("ctas")
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" })
-                  }
-                }}
-                className="group inline-flex items-center gap-4 rounded-full border border-white text-white bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
-              >
-                <span>Let’s Design Your Next Project</span>
-                <Image
-                  src="/whitearrow.svg"
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:-rotate-45"
-                />
-              </Link>
-            </div>
-          </FadeInOnScroll>
-        </div>
-      </section>
-
-      {/* WHY YOU NEED AN AV CONSULTANT */}
-      
-      <section className="w-full bg-white py-20">
-        <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-  initial={{ opacity: 0, x: -40 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.6 }}
-  className="relative w-full h-[480px] rounded-2xl overflow-hidden shadow-xl"
+  className="relative min-h-screen w-full flex items-center justify-center bg-cover bg-center"
+  style={{ backgroundImage: "url('/nw.webp')" }}
 >
-  {sliderImages.map((item, index) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: currentSlide === index ? 1 : 0 }}
-      transition={{ duration: 1.2, ease: "easeInOut" }}
-      className="absolute inset-0 w-full h-full"
-    >
-      <Image
-        src={item.src}
-        alt={item.caption}
-        fill
-        className="object-cover"
-      />
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black/80"></div>
 
-      {/* Luxury Caption */}
-      <div className="absolute bottom-6 left-6 bg-black/40 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium tracking-wide shadow-lg">
-        {item.caption}
-      </div>
-    </motion.div>
-  ))}
-</motion.div>
-
-          <div>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="text-3xl lg:text-4xl font-black text-gray-900 mb-4"
-            >
-              Why AV Consulting Is Not Optional
-            </motion.h2>
-
-            
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {problems.map((item, i) => (
-                <div
-                  key={i}
-                  className="border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all bg-white"
-                >
-                  
-                  <button
-                    onClick={() => toggle(i)}
-                    className="w-full flex justify-between items-center"
-                  >
-                    <span className="font-semibold text-gray-900 text-lg">{item.title}</span>
-                    <span className="text-2xl font-bold text-gray-800">
-                      {openIndex === i ? "×" : "+"}
-                    </span>
-                  </button>
-                  <AnimatePresence initial={false}>
-  {openIndex === i && (
-    <motion.div
-    layout
-    key={`problem-${i}`}
-    className="mt-3 text-sm leading-relaxed text-gray-600"
-  >
-    {item.description}
-  </motion.div>
-  )}
-</AnimatePresence>
-
-                </div>
-              ))}
-            </div>
-              <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mt-10 border-l-4 border-gray-900 pl-4 my-6 text-gray-800 italic text-sm"
-            >
-              At CED Africa, we prevent these issues before they happen, protecting your investment, your
-              space, and your experience.
-            </motion.div>
-            <Link
-              href="#"
-              onClick={(e) => {
-                e.preventDefault()
-                const element = document.getElementById("ctas")
-                if (element) {
-                  element.scrollIntoView({ behavior: "smooth" })
-                }
-              }}
-              className="group my-6 inline-flex items-center gap-4 rounded-full border border-black text-black bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
-            >
-              <span>Let’s Design Your Next Project</span>
-              <Image
-                src="/blackarrow.svg"
-                alt="arrow"
-                width={16}
-                height={16}
-                className="transition-transform duration-300 group-hover:-rotate-45"
-              />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* COLLABORATION SECTION */}
-      <section
-        className="relative w-full bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: "url('/pa.webp')" }}
-      >
-        <div className="absolute inset-0 bg-black/80"></div>
-
-        <div className="relative max-w-5xl mx-auto px-6 py-32 text-center text-white z-10">
-          <h2 className="text-4xl lg:text-5xl font-semibold mb-6">
-            Designed Together. Delivered Perfectly.
-          </h2>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-12">
-           We align with architects, interior designers, and MEP teams to ensure clean coordination, invisible technology, and engineering accuracy—so the final space performs as beautifully as it looks.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-xl">
-              <h3 className="text-xl font-semibold mb-3">For Architects</h3>
-              <p className="text-gray-300">
-                Early-stage coordination and precise technical drawings protect your spatial vision.
-              </p>
-            </div>
-            <div className="bg-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-xl">
-              <h3 className="text-xl font-semibold mb-3">For Interior Designers</h3>
-              <p className="text-gray-300">
-                Technology blends seamlessly with your aesthetic intent—clean, minimal, beautiful.
-              </p>
-            </div>
-            <div className="bg-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-xl">
-              <h3 className="text-xl font-semibold mb-3">For MEP Consultants</h3>
-              <p className="text-gray-300">
-                Accurate load calculations, conduit sizing, ceiling coordination, and
-                network-ready documentation.
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="https://forms.zohopublic.com/cedafrica1/form/CEDAFRICATRADEPARTNERREGISTRATION/formperma/GjW-gerRT7hXlJQd4HTw7SzZo9YZkQ4nIuC9Yapk-q8"
-            target="_blank"
-            className="inline-flex items-center gap-3 text-white font-semibold border border-white rounded-full px-8 py-3 transition hover:bg-white hover:text-gray-900"
-          >
-            Become a Trade Partner
-            <img src="/whitearrow.svg" alt="arrow" className="w-4 h-4" />
-          </a>
-        </div>
-      </section>
-
-      {/* METHODOLOGY / PROCESS */}
-      <section data-light className="bg-gray-100 py-24 relative">
-  <div className="container-fluid px-6">
+  {/* Content wrapper */}
+  <div className="relative flex flex-col items-center justify-center text-center px-6 py-20 w-full h-full max-w-4xl">
     <FadeInOnScroll>
-      <h2 className="text-4xl lg:text-3xl articulatcf font-black text-black text-center mb-20">
-        Our Methodology
-      </h2>
+      <h1 className="text-3xl md:text-4xl lg:text-4xl articulatcf font-black mb-4 text-white">
+        AV Distribution for High-End Projects
+      </h1>
+
+     <p className="text-lg md:text-xl text-gray-200 max-w-2xl mb-8 text-center mx-auto">
+  From residential to large-scale commercial environments, we partner with top-tier AV brands to deliver state of the art AV Solutions.
+</p>
+
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        {/* Become a Dealer */}
+        <Link
+          href="https://forms.zohopublic.com/cedafrica1/form/CEDDEALER1/formperma/3pyzHRyCZW98J78vZjxeAocUNe6_joXLPloPsomk1wg"
+          target="_blank"
+          className="group inline-flex items-center gap-4 rounded-full border border-white text-white bg-transparent px-8 py-4 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
+        >
+          <span>Become a Dealer</span>
+          <Image
+            src="/whitearrow.svg"
+            alt="arrow"
+            width={16}
+            height={16}
+            className="transition-transform duration-300 group-hover:-rotate-45"
+          />
+        </Link>
+
+        {/* Visit Experience Centre */}
+        
+      </div>
     </FadeInOnScroll>
+  </div>
+</section>
 
-    <div className="relative max-w-4xl mx-auto before:absolute before:top-0 before:left-1/2 before:h-full before:w-1 before:-translate-x-1/2 before:bg-gray-200">
+<section className="relative w-full py-24 bg-[#0A0A0A] text-white">
+  {/* Subtle gradient overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80 pointer-events-none"></div>
+
+  <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+    {/* Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl articulatcf font-black mb-4">
+        A Distribution Partner Built Exclusively for Professionals
+      </h2>
+      <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        We empower Africa’s top professionals with industry-leading AV, smart home,
+        networking, surveillance, and acoustic brands—curated for performance,
+        reliability, and profitability.
+      </p>
+    </div>
+
+    {/* Grid of audiences */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-16">
       {[
-        {
-          number: "1",
-          title: "Client Discovery",
-          description:
-            "We begin by understanding the client’s vision, lifestyle needs, functional requirements, and project expectations.",
-        },
-        {
-          number: "2",
-          title: "Conceptual Design",
-          description:
-            "We develop a clear AV concept—outlining system architecture, experience flow, equipment direction, and coordination requirements.",
-        },
-        {
-          number: "3",
-          title: "Technical Documentation",
-          description:
-            "We produce detailed drawings, schematics, specifications, and structured plans that guide integrators and design partners.",
-        },
-        {
-          number: "4",
-          title: "System Performance Verification",
-          description:
-            "We ensure every system performs as designed through validation, calibration oversight, and project sign-off checks.",
-        },
-      ].map((step, index) => (
-        <FadeInOnScroll key={step.number} className="relative mb-12">
-          <div
-            className={`flex flex-col md:flex-row items-center md:items-start ${
-              index % 2 === 0 ? "md:flex-row-reverse" : ""
-            }`}
-          >
-            <div className="flex-shrink-0 w-12 h-12 bg-black text-white rounded-full flex items-center justify-center articulatcf font-black text-xl z-10">
-              {step.number}
-            </div>
-
-            <div
-              className={`bg-white p-6 rounded-lg shadow-md max-w-md md:mx-8 ${
-                index % 2 === 0 ? "md:ml-8" : "md:mr-8"
-              }`}
-            >
-              <h3 className="text-xl articulatcf font-black text-black mb-2">
-                {step.title}
-              </h3>
-              <p className="text-base articulatcfLight text-gray-700">
-                {step.description}
-              </p>
-            </div>
-          </div>
-        </FadeInOnScroll>
+        "For System Integrators",
+        "For Electrical Contractors",
+        "For Developers",
+        "For Main Contractors"
+        
+      ].map((item, index) => (
+        <div
+          key={index}
+          className="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md 
+                     hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
+        >
+          <h3 className="text-xl font-semibold group-hover:translate-x-1 transition-transform duration-300">
+            {item}
+          </h3>
+        </div>
       ))}
+    </div>
+
+    {/* CTA */}
+    <div className="flex justify-center">
+      <Link
+        href="https://forms.zohopublic.com/cedafrica1/form/CEDDEALER1/formperma/3pyzHRyCZW98J78vZjxeAocUNe6_joXLPloPsomk1wg"
+        target="_blank"
+        className="group inline-flex items-center gap-4 rounded-full border border-white text-white 
+                   bg-transparent px-10 py-4 transition-all duration-300 hover:bg-white hover:text-black"
+      >
+        <span className="text-lg font-medium">Become a Dealer</span>
+        <Image
+          src="/whitearrow.svg"
+          alt="arrow"
+          width={18}
+          height={18}
+          className="transition-transform duration-300 group-hover:-rotate-45 group-hover:brightness-0"
+        />
+      </Link>
     </div>
   </div>
 </section>
 
-<section className="w-full bg-white py-24">
-  <div className="container mx-auto px-6 text-center">
+<section className="relative w-full py-28 bg-white text-black">
+  <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
     {/* Header */}
-    <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4 articulatcf">
-      Explore Our Featured Projects
-    </h2>
+    <div className="text-center mb-10">
+      <h2 className="text-3xl md:text-5xl articulatcf font-black mb-6 tracking-tight">
+        Premium Brands That Elevate Every Project
+      </h2>
+      <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Explore our curated selection of professional brands built for performance,
+        reliability, and seamless integration across all project types.
+      </p>
+    </div>
 
-    {/* Short Description */}
-    <p className="text-gray-600 text-base lg:text-lg max-w-2xl mx-auto articulatcfLight mb-10">
-      From ultra-luxury residences to high-performance commercial spaces, our AV designs
-      are crafted to elevate architecture, enhance lifestyle, and deliver uncompromising
-      technical excellence.
-    </p>
-
-    {/* CTA Button */}
-    <Link
-      href="/projects"
-      target="_blank"
-      className="inline-flex  items-center gap-3 rounded-full border border-black text-black px-8 py-3 transition-all duration-300 hover:bg-black hover:text-white hover-btn"
-    >
-      <span>View Projects</span>
-      <Image
-        src="/blackarrow.svg"
-        alt="arrow"
-        width={16}
-        height={16}
-        className="transition-transform duration-300 group-hover:-rotate-45"
-      />
-    </Link>
+    <div className="pt-10">
+      <BrandTab types={types} groupedBrands={groupedBrands} />
+    </div>
 
   </div>
 </section>
 
 
-      {/* CTA SECTION */}
-      <section className="relative overflow-hidden py-28 bg-black text-white">
-        <div className="container-fluid px-6 text-center">
-          <FadeInOnScroll>
-            <h2 className="text-4xl lg:text-4xl articulatcfLight mb-8 max-w-3xl mx-auto">
-              Ready to Create an Exceptional Space?
-            </h2>
-            <p className="text-lg lg:text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-              Let’s design AV that elevates the experience—not complicates it.
-            </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link
-                href="/experiences"
-                target="_blank"
-                className="group inline-flex items-center gap-4 rounded-full border border-white text-white px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
-              >
-                <span>Visit Our Experience Centre</span>
-                <Image
-                  src="/whitearrow.svg"
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:-rotate-45"
-                />
-              </Link>
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault()
-                  const element = document.getElementById("ctas")
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" })
-                  }
-                }}
-                className="group inline-flex items-center gap-4 rounded-full border border-white text-white bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
-              >
-                <span>Let’s Design Your Next Projects</span>
-                <Image
-                  src="/whitearrow.svg"
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:-rotate-45"
-                />
-              </Link>
-            </div>
-          </FadeInOnScroll>
+<section className="relative w-full py-32 bg-[#0B0B0C] text-white overflow-hidden">
+
+  {/* Ambient Glow Accents */}
+  <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+
+  <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+
+    {/* Header */}
+    <div className="text-center mb-20">
+      <h2 className="text-3xl md:text-5xl articulatcf font-black tracking-tight mb-6">
+        Why Dealers Choose CED Distribution
+      </h2>
+      <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+        Your competitive advantage starts here.
+      </p>
+    </div>
+
+    {/* Features */}
+   <div className="
+  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+  gap-10
+  lg:flex lg:flex-wrap lg:justify-center
+">
+  {[
+    {
+      icon: ShieldCheck,
+      title: "Protected Dealer Margins",
+      desc: "We ensure healthy, stable margins so your business grows sustainably."
+    },
+    {
+      icon: Headphones,
+      title: "Technical Guidance & Project Support",
+      desc: "Our experts assist from planning to deployment, reducing errors and rework."
+    },
+    {
+      icon: Truck,
+      title: "Fast Local Availability",
+      desc: "Strong supply chain ensures products are always within reach."
+    },
+    {
+      icon: GraduationCap,
+      title: "Training & Certification",
+      desc: "Gain expertise with AVIXA-aligned training and brand-certified programs."
+    },
+    {
+      icon: Building2,
+      title: "Experience Centre Access",
+      desc: "Show clients real demos across Hi-Fi, cinema, commercial AV and smart home."
+    }
+  ].map((item, index) => {
+    const Icon = item.icon;
+    return (
+      <div
+        key={index}
+        className="relative p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10
+                   shadow-[0_0_40px_rgba(255,255,255,0.03)] hover:shadow-[0_0_60px_rgba(255,255,255,0.08)]
+                   transition-all duration-500 hover:-translate-y-2 group
+                   w-full md:w-auto lg:w-[30%]"
+      >
+        {/* Icon */}
+        <div className="w-14 h-14 mb-6 flex items-center justify-center rounded-2xl
+                        bg-white/10 border border-white/10 shadow-inner
+                        group-hover:bg-blue-500/20 transition-all">
+          <Icon size={32} className="opacity-80 group-hover:opacity-100 transition-opacity" />
         </div>
-      </section>
 
-      {/* FORM SECTION */}
-      <section className="relative bg-gray-50 py-28" id="ctas">
-        <div className="container mx-auto px-6 max-w-5xl text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">
-            Ready to Design Your AV Project?
-          </h2>
-          <p className="text-gray-600 mb-12">
-            Fill out the form below and let’s collaborate to create a flawless AV experience for your space.
+        {/* Title */}
+        <h3 className="text-xl font-semibold mb-3 group-hover:text-gray-100 transition-colors">
+          {item.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-400 leading-relaxed">
+          {item.desc}
+        </p>
+
+        {/* Decorative Line */}
+        <div className="mt-6 w-0 group-hover:w-20 h-[1.5px] bg-gradient-to-r from-[#D9D9D9] via-[#F2F2F2] to-[#BFBFBF] transition-all duration-500"></div>
+      </div>
+    );
+  })}
+</div>
+    {/* CTA */}
+    <div className="flex justify-center mt-20">
+      <Link
+        href="https://forms.zohopublic.com/cedafrica1/form/CEDDEALER1/formperma/3pyzHRyCZW98J78vZjxeAocUNe6_joXLPloPsomk1wg"
+        target="_blank"
+        className="group inline-flex items-center gap-4 rounded-full border border-white
+                   text-white bg-transparent px-12 py-4 text-lg font-semibold
+                   transition-all duration-300 hover:bg-white hover:text-black
+                   hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]"
+      >
+        Become a Dealer
+        <Image
+          src="/whitearrow.svg"
+          alt="arrow"
+          width={20}
+          height={20}
+          className="transition-transform duration-300 group-hover:-rotate-45"
+        />
+      </Link>
+    </div>
+
+  </div>
+</section>
+
+
+<section className="relative w-full py-28 bg-white text-black">
+
+  <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+    {/* Header */}
+    <div className="text-center mb-20">
+      <h2 className="text-3xl md:text-5xl articulatcf font-black mb-6 tracking-tight">
+        Solutions for Every Project Type
+      </h2>
+      <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Built for today’s demands across multiple industries.
+      </p>
+    </div>
+
+    {/* Grid */}
+    {/* Grid */}
+<div
+  className="
+    grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+    gap-10 mb-20
+    lg:flex lg:flex-wrap lg:justify-center
+  "
+>
+  {[
+    {
+      icon: Home,
+      title: "Luxury Homes & Smart Residences",
+      desc: "Multiroom audio, architectural speakers, networking, surveillance, and automation."
+    },
+    {
+      icon: Building,
+      title: "Enterprise & Corporate Spaces",
+      desc: "Boardrooms, training rooms, townhall spaces, distributed audio."
+    },
+    {
+      icon: Hotel,
+      title: "Hotels & Hospitality",
+      desc: "Ambient audio, zone control, video distribution."
+    },
+    {
+      icon: Music2,
+      title: "Bars, Lounges & Clubs",
+      desc: "High-SPL commercial audio with sleek Italian design."
+    },
+    {
+      icon: Church,
+      title: "Houses of Worship & Large Venues",
+      desc: "Acoustics, audio distribution, speech intelligibility, and PA systems."
+    }
+  ].map((item, index) => {
+    const Icon = item.icon;
+    return (
+      <div
+        key={index}
+        className="
+          p-10 rounded-3xl bg-white shadow-[0_0_15px_rgba(0,0,0,0.08)]
+          hover:shadow-[0_0_40px_rgba(0,0,0,0.15)]
+          border border-gray-100 transition-all duration-300
+          hover:-translate-y-2 group
+          w-full md:w-auto lg:w-[30%]
+        "
+      >
+        {/* Icon */}
+        <div className="w-16 h-16 mb-8 rounded-2xl bg-black/5 flex items-center justify-center 
+                        group-hover:bg-black group-hover:text-white transition-all duration-300">
+          <Icon size={34} className="text-black group-hover:text-white transition-colors" />
+        </div>
+
+        {/* Title */}
+        <h3 className="text-2xl font-semibold mb-4 group-hover:text-black transition-colors">
+          {item.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-600 leading-relaxed">
+          {item.desc}
+        </p>
+
+        {/* Accent Line */}
+        <div className="mt-6 w-0 group-hover:w-24 h-[2px] bg-gradient-to-r from-gray-500 to-gray-900 transition-all duration-500"></div>
+      </div>
+    );
+  })}
+</div>
+
+    {/* CTA */}
+    <div className="flex justify-center">
+      <Link
+        href="https://forms.zohopublic.com/cedafrica1/form/CEDDEALER1/formperma/3pyzHRyCZW98J78vZjxeAocUNe6_joXLPloPsomk1wg" target='_blank'
+        className="group inline-flex items-center gap-4 rounded-full border border-black
+                   text-black bg-transparent px-12 py-4 text-lg font-semibold
+                   transition-all duration-300 hover:bg-black hover:text-white
+                   hover:shadow-[0_0_25px_rgba(0,0,0,0.25)]"
+      >
+        Become a Dealer
+        <Image
+          src="/blackarrow.svg"
+          alt="arrow"
+          width={20}
+          height={20}
+          className="transition-transform duration-300 group-hover:-rotate-45"
+        />
+      </Link>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section className="relative w-full py-28 bg-white text-black">
+
+  <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+    {/* Header */}
+    <div className="text-center mb-20">
+      <h2 className="text-3xl md:text-5xl articulatcf font-black tracking-tight mb-6">
+        Dealer Program Overview
+      </h2>
+      <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Grow faster with the CED Distribution Dealer Program.
+      </p>
+    </div>
+
+    {/* Two-column luxury layout */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      {/* Left — clean stacked list */}
+      <div className="space-y-10">
+
+        {[
+          {
+            icon: DollarSign,
+            title: "Exclusive Dealer Pricing",
+            desc: "Preferential margins designed to grow your business sustainably."
+          },
+          {
+            icon: Package,
+            title: "Priority Stock Access",
+            desc: "Secure inventory faster and avoid project delays."
+          },
+          {
+            icon: ShieldCheck,
+            title: "Extended Warranties",
+            desc: "Longer protection for select brands and product categories."
+          },
+          {
+            icon: UserCheck,
+            title: "Dedicated Account Manager",
+            desc: "Personalized support for projects, pricing, and logistics."
+          },
+          {
+            icon: BadgePercent,
+            title: "Project-Based Discounts",
+            desc: "Special pricing for large home, commercial, and enterprise projects."
+          },
+          {
+            icon: Star,
+            title: "Access to Premium Brands",
+            desc: "Sonos, Luhkee, KGEAR, Vicoustic, and more high-demand brands."
+          },
+          {
+            icon: Building,
+            title: "Experience Centre Access",
+            desc: "Use the Soundhous Experience Centre for client demos and closings."
+          }
+        ].map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <div
+              key={index}
+              className="flex gap-6 items-start p-6 rounded-3xl border border-gray-200 bg-white
+                         shadow-[0_0_15px_rgba(0,0,0,0.06)] hover:shadow-[0_0_30px_rgba(0,0,0,0.10)]
+                         transition-all duration-300 group hover:-translate-y-1"
+            >
+              {/* Icon */}
+              <div className="w-14 h-14 flex items-center justify-center rounded-2xl 
+                              bg-black/5 group-hover:bg-black transition-all duration-300">
+                <Icon size={32} className="text-black group-hover:text-white transition-colors" />
+              </div>
+
+              {/* Description */}
+              <div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-black">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600">{item.desc}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Right — Luxury highlight panel */}
+      <div className="relative p-14 bg-black text-white rounded-[2.5rem] overflow-hidden shadow-xl">
+
+        {/* Glow Accent */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-400/10 to-transparent pointer-events-none"></div>
+
+        <div className="relative z-10">
+          <h3 className="text-3xl md:text-4xl font-black mb-6 tracking-tight">
+            A Partnership Built for Growth
+          </h3>
+          <p className="text-gray-300 text-lg leading-relaxed mb-10">
+            Join a growing network of elite system integrators and installers who rely 
+            on CED Distribution for premium products, guaranteed availability, and world-class support.
           </p>
 
-          <div className="bg-white shadow-2xl rounded-2xl overflow-hidden p-6 md:p-12">
-            <iframe
-              aria-label="CED Africa - AV Consulting Project Discovery Form"
-              frameBorder="0"
-              style={{ height: "2200px", width: "100%", border: "none" }}
-              src="https://forms.zohopublic.com/cedafrica1/form/CEDAfricaDesignAVProjectDiscoveryForm/formperma/f29U0ZV7f1pUBsJ-PJJ6CIUciqzV2UoYsM50Shy7yOc"
-            ></iframe>
-          </div>
+          {/* CTA */}
+          <Link
+            href="https://forms.zohopublic.com/cedafrica1/form/CEDDEALER1/formperma/3pyzHRyCZW98J78vZjxeAocUNe6_joXLPloPsomk1wg"
+            target="_blank"
+            className="group inline-flex items-center gap-4 rounded-full border border-white
+                       text-white bg-transparent px-10 py-4 text-lg font-semibold
+                       transition-all duration-300 hover:bg-white hover:text-black
+                       hover:shadow-[0_0_25px_rgba(255,255,255,0.3)]"
+          >
+            Become a Dealer
+            <Image
+              src="/whitearrow.svg"
+              alt="arrow"
+              width={20}
+              height={20}
+              className="transition-transform duration-300 group-hover:-rotate-45"
+            />
+          </Link>
         </div>
-      </section>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section className="relative w-full py-28 bg-white text-black">
+
+  <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+    {/* HEADER */}
+    <div className="text-center mb-20">
+      <h2 className="text-3xl md:text-5xl articulatcf font-black tracking-tight mb-6">
+        Step Into Nigeria’s Most Advanced AV Experience Centre
+      </h2>
+      <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Located in Victoria Island, Lagos, our experience centre features immersive rooms tailored 
+        for real-world demos. Invite clients, close bigger deals, and convert faster with spaces 
+        designed to sell themselves.
+      </p>
+    </div>
+
+    {/* GRID SHOWCASE — Premium Room Images */}
+    {/* GRID SHOWCASE — Premium Room Images */}
+<div
+  className="
+    grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+    gap-10 mb-20
+    lg:flex lg:flex-wrap lg:justify-center
+  "
+>
+  {[
+    {
+      title: "Hi-Fi Listening Room",
+      desc: "Experience pure, precise, high-fidelity sound in a dedicated acoustic environment.",
+      img: "/hifi.jpeg"
+    },
+    {
+      title: "Outdoor Soundscape",
+      desc: "Hear powerful, weatherproof audio crafted for gardens, pools, and outdoor luxury.",
+      img: "/ods.jpg"
+    },
+    {
+      title: "Private Home Cinema",
+      desc: "A cinematic environment tuned for Dolby Atmos demonstrations and private screenings.",
+      img: "/phc.jpg"
+    },
+    {
+      title: "Smart Home Automation",
+      desc: "Lighting, audio, and automation working together for seamless living experiences.",
+      img: "/shh.jpg"
+    },
+    {
+      title: "Commercial Audio Zones",
+      desc: "Premium commercial sound solutions for hospitality, retail, lounges, and enterprise spaces.",
+      img: "/ca.jpg"
+    }
+  ].map((item, index) => (
+    <div
+      key={index}
+      className="
+        group overflow-hidden rounded-3xl bg-white border border-gray-200
+        shadow-[0_0_15px_rgba(0,0,0,0.06)]
+        hover:shadow-[0_0_40px_rgba(0,0,0,0.12)]
+        transition-all duration-500 hover:-translate-y-2 flex flex-col
+        w-full md:w-auto lg:w-[30%]
+      "
+    >
+
+      {/* Image */}
+      <div className="relative h-56 w-full overflow-hidden">
+        <img 
+          src={item.img} 
+          alt={item.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+      </div>
+
+      {/* Text */}
+      <div className="p-8 flex flex-col flex-1">
+        <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+        <p className="text-gray-600 flex-1 leading-relaxed">
+          {item.desc}
+        </p>
+
+        {/* Accent Line */}
+        <div className="mt-6 w-0 group-hover:w-24 h-[2px] bg-gradient-to-r from-gray-500 to-gray-900 transition-all duration-500"></div>
+      </div>
+
+    </div>
+  ))}
+</div>
+
+    {/* CTA */}
+    <div className="flex justify-center">
+      <Link
+        href="/experiences" target='_blank'
+        className="group inline-flex items-center gap-4 rounded-full border border-black
+                   text-black bg-transparent px-12 py-4 text-lg font-semibold
+                   transition-all duration-300 hover:bg-black hover:text-white
+                   hover:shadow-[0_0_25px_rgba(0,0,0,0.25)]"
+      >
+        Book a Visit
+        <Image
+          src="/blackarrow.svg"
+          alt="arrow"
+          width={20}
+          height={20}
+          className="transition-transform duration-300 group-hover:-rotate-45"
+        />
+      </Link>
+    </div>
+
+  </div>
+</section>
+
+<section className="relative w-full py-32 bg-gradient-to-br from-black to-gray-900 text-white overflow-hidden">
+
+  {/* Soft Glow Accents */}
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+
+  <div className="relative max-w-5xl mx-auto px-6 text-center">
+
+    {/* Headline */}
+    <h2 className="text-3xl md:text-6xl articulatcf font-black tracking-tight mb-6 leading-tight">
+      Ready to Elevate Your Projects<br />and Grow Your Business?
+    </h2>
+
+    {/* Subtext */}
+    <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-14 leading-relaxed">
+      Let’s partner and build Africa’s next generation of AV excellence.
+    </p>
+
+    {/* CTAs */}
+    <div className="flex flex-col sm:flex-row justify-center gap-6">
+
+      {/* Become a Dealer */}
+      <Link
+        href="https://forms.zohopublic.com/cedafrica1/form/CEDDEALER1/formperma/3pyzHRyCZW98J78vZjxeAocUNe6_joXLPloPsomk1wg"
+        target="_blank"
+        className="group inline-flex items-center gap-4 px-10 py-4 rounded-full 
+                   bg-white text-black font-semibold text-lg border border-white
+                   transition-all duration-300 hover:bg-transparent hover:text-white"
+      >
+        Become a Dealer
+        <Image
+          src="/blackarrow.svg"
+          alt="arrow"
+          width={20}
+          height={20}
+          className="transition-transform duration-300 group-hover:-rotate-45 group-hover:brightness-200"
+        />
+      </Link>
+
+      {/* Visit Experience Centre */}
+      <Link
+        href="/experiences" target='_blank'
+        className="group inline-flex items-center gap-4 px-10 py-4 rounded-full 
+                   border border-white text-white font-semibold text-lg
+                   transition-all duration-300 hover:bg-white hover:text-black"
+      >
+        Visit Our Experience Centre
+        <Image
+          src="/whitearrow.svg"
+          alt="arrow"
+          width={20}
+          height={20}
+          className="transition-transform duration-300 group-hover:-rotate-45"
+        />
+      </Link>
+
+    </div>
+
+  </div>
+</section>
     </div>
   )
 }
 
-export default Consulting
+export default Distribution
