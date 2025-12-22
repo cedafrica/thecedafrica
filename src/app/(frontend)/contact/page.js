@@ -3,7 +3,7 @@ export const runtime = 'nodejs'
 export const revalidate = 0
 
 import React from 'react'
-import { getPayload } from 'src/app/lib/payloadServer.ts'
+import { getPayload } from '../../lib/payloadServer'
 
 import Carousel from '../components/Carousel'
 import ContactUs from '../components/ContactUs'
