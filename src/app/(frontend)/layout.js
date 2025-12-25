@@ -4,8 +4,8 @@ import Footer from './components/Footer'
 import Head from 'next/head'
 
 export const metadata = {
-  title: 'CED Africa',
-  description: 'Delivering world-class audiovisual and automation experiences from West Africa.',
+  title: 'AV Consulting, AV Design & AV Distribution Company in Nigeria | CED Africa',
+  description: 'CED Africa is a leading AV consulting, AV design, and audiovisual distribution company in Nigeria, delivering design-led, vendor-neutral solutions for architects, developers, and enterprises.',
 }
 
 export default function RootLayout({ children }) {

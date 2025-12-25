@@ -8,7 +8,6 @@ import FadeInOnScroll from "../components/FadeInOnScroll"
 import { motion, AnimatePresence } from "framer-motion"
 
 
-
 // Risks accordion content
 const problems = [
   {

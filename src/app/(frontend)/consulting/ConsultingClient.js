@@ -1,62 +1,48 @@
+// src/app/(frontend)/consulting/page.js
+
+import ConsultingClient from "./ConsultingClient"
+
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+export const fetchCache = "force-no-store"
+
 export async function generateMetadata() {
   return {
     title:
-      'AV Consulting Company in Nigeria | Audiovisual Design & Strategy | CED Africa',
-
+      "AV Consulting Company in Nigeria | Audiovisual Design & Strategy | CED Africa",
     description:
-      'CED Africa provides professional AV consulting and audiovisual design services in Nigeria, helping architects, developers, and enterprises design performance-led, fully coordinated AV systems.',
-
+      "CED Africa is a leading AV consulting company in Nigeria delivering audiovisual design, acoustic consulting, and AV strategy for luxury homes, commercial spaces, and large venues.",
     keywords: [
-      'AV consulting Nigeria',
-      'audiovisual consulting Nigeria',
-      'AV design Nigeria',
-      'AV consultants Lagos',
-      'audiovisual design company Nigeria',
-      'AV strategy for architects',
-      'commercial AV consulting Nigeria',
-      'smart building AV Nigeria',
-      'enterprise AV design Nigeria',
+      "AV consulting Nigeria",
+      "audiovisual consulting Lagos",
+      "AV design Nigeria",
+      "acoustic consulting Nigeria",
+      "commercial AV systems Nigeria",
+      "AV consultants in Lagos",
+      "AV design for architects Nigeria",
     ],
-
     alternates: {
-      canonical: 'https://www.ced.africa/consulting',
+      canonical: "https://www.ced.africa/consulting",
     },
-
     openGraph: {
-      type: 'website',
-      locale: 'en_NG',
-      url: 'https://www.ced.africa/consulting',
-      siteName: 'CED Africa',
-      title:
-        'AV Consulting in Nigeria | Audiovisual Design & Engineering | CED Africa',
+      title: "AV Consulting & AV Design in Nigeria | CED Africa",
       description:
-        'Independent AV consulting and audiovisual design for high-end residential, hospitality, enterprise, and large-scale projects across Nigeria.',
+        "Consulting-led AV design for luxury residential, hospitality, corporate, and large-scale projects across Nigeria and West Africa.",
+      url: "https://www.ced.africa/consulting",
+      siteName: "CED Africa",
       images: [
         {
-          url: 'https://www.ced.africa/services/2',
+          url: "https://www.ced.africa/consult.webp",
           width: 1200,
           height: 630,
-          alt: 'AV consulting and audiovisual design by CED Africa',
+          alt: "AV Consulting in Nigeria",
         },
       ],
-    },
-
-    twitter: {
-      card: 'summary_large_image',
-      title:
-        'AV Consulting Company in Nigeria | CED Africa',
-      description:
-        'CED Africa delivers independent AV consulting and audiovisual design services for architects and developers in Nigeria.',
-      images: ['https://www.ced.africa/services/2'],
-    },
-
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-      },
+      type: "website",
     },
   }
+}
+
+export default function ConsultingPage() {
+  return <ConsultingClient />
 }

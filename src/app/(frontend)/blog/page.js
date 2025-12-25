@@ -139,11 +139,12 @@ const Blog = () => {
           {filteredPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post) => (
-                <Link
-                  key={post.id}
-                  href={`/blog/${post.id}`}
-                  className="block group"
-                >
+               <Link
+  key={post.id}
+  href={`/blog/${post.id}`}
+  className="block group text-black no-underline"
+>
+
                   <div className="mb-4 overflow-hidden rounded-lg">
                     <Image
                       src={post.image}
