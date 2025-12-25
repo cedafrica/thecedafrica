@@ -8,6 +8,85 @@ import Carousel from '../components/Carousel'
 import PartnerTabs from '../components/PartnerTabs'
 import Image from 'next/legacy/image'
 
+export const metadata = {
+  title:
+    "AV Dealers & Partners in Nigeria | Become an Authorized AV Dealer | CED Africa",
+
+  description:
+    "Join CED Africa’s authorized AV dealer and partner network in Nigeria and West Africa. Access premium audiovisual brands, protected margins, technical support, training, and project opportunities for system integrators, contractors, and developers.",
+
+  keywords: [
+    "AV dealers in Nigeria",
+    "AV distribution partners Nigeria",
+    "audio visual dealers Lagos",
+    "authorized AV dealer Nigeria",
+    "AV partner network Nigeria",
+    "become an AV dealer Nigeria",
+    "AV system integrators Nigeria",
+    "AV installers Nigeria",
+    "professional AV distributors Nigeria",
+    "commercial AV partners West Africa",
+    "home automation dealers Nigeria",
+    "smart home AV dealers Lagos",
+    "CED Africa partners",
+    "CED Africa dealers",
+    "AV brands distribution Nigeria",
+    "AV reseller Nigeria"
+  ],
+
+  authors: [{ name: "CED Africa" }],
+  creator: "CED Africa",
+  publisher: "CED Africa",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://www.ced.africa/partners",
+  },
+
+  openGraph: {
+    title:
+      "Become an Authorized AV Dealer in Nigeria | CED Africa Partner Network",
+    description:
+      "Partner with CED Africa and gain access to world-class AV brands, dealer protection, technical support, and growth opportunities across Nigeria and West Africa.",
+    url: "https://www.ced.africa/partners",
+    siteName: "CED Africa",
+    images: [
+      {
+        url: "https://www.ced.africa/services/2",
+        width: 1200,
+        height: 630,
+        alt: "CED Africa AV Dealer & Partner Network – Nigeria",
+      },
+    ],
+    locale: "en_NG",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "AV Dealer Network Nigeria | Partner with CED Africa",
+    description:
+      "Join Nigeria’s leading AV distribution partner network. Premium brands, dealer protection, and expert support.",
+    images: ["https://www.ced.africa/services/2"],
+    creator: "@cedafrica",
+  },
+
+  category: "AV Distribution & Dealer Network",
+};
+
+
 const Partners = async () => {
   if (!payload.__initialized) {
     const { default: config } = await import('@payload-config')

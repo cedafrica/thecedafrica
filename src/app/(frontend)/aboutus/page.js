@@ -8,6 +8,71 @@ import Image from 'next/legacy/image'
 import Link from 'next/link'
 import FadeInOnScroll from '../components/FadeInOnScroll'
 
+export async function generateMetadata() {
+  return {
+    title:
+      'About CED Africa | AV Consulting, AV Design & AV Distribution Company in Nigeria',
+
+    description:
+      'Learn about CED Africa, a leading AV consulting, AV design, and audiovisual distribution company in Nigeria, delivering design-led solutions for architects, developers, and enterprises across West Africa.',
+
+    keywords: [
+      'CED Africa',
+      'about CED Africa',
+      'AV consulting Nigeria',
+      'AV design Nigeria',
+      'audiovisual distribution Nigeria',
+      'AV company Nigeria',
+      'AV consultants Lagos',
+      'commercial AV solutions Nigeria',
+      'smart building AV Nigeria',
+      'audiovisual experts Nigeria',
+    ],
+
+    alternates: {
+      canonical: 'https://www.ced.africa/about',
+    },
+
+    openGraph: {
+      type: 'website',
+      locale: 'en_NG',
+      url: 'https://www.ced.africa/about',
+      siteName: 'CED Africa',
+      title:
+        'About CED Africa | AV Consulting, AV Design & AV Distribution in Nigeria',
+      description:
+        'CED Africa is a Nigerian AV consulting, AV design, and audiovisual distribution company working with architects, developers, and enterprises to deliver world-class AV experiences.',
+      images: [
+        {
+          url: 'https://www.ced.africa/services/2',
+          width: 1200,
+          height: 630,
+          alt: 'CED Africa audiovisual consulting and design',
+        },
+      ],
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title:
+        'About CED Africa | AV Consulting, AV Design & AV Distribution in Nigeria',
+      description:
+        'Discover CED Africa’s vision, strategy, and role as a leading AV consulting, AV design, and distribution company in Nigeria.',
+      images: ['https://www.ced.africa/services/2'],
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+  }
+}
+
+
 const AboutUs = async () => {
   if (!payload.__initialized) {
     const { default: config } = await import('@payload-config')

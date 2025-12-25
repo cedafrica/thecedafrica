@@ -6,6 +6,88 @@ import { notFound } from 'next/navigation'
 import Image from 'next/legacy/image'
 import FadeInOnScroll from '../../components/FadeInOnScroll'
 
+export const metadata = {
+  title:
+    "AV Experience Centre in Nigeria | The Best AV Showroom in West Africa | CED Africa",
+
+  description:
+    "Visit CED Africa’s AV Experience Centre in Lagos, Nigeria — West Africa’s most advanced audiovisual showroom. Experience high-end home cinema, Hi-Fi listening rooms, smart home automation, commercial audio systems, acoustics and professional AV solutions from world-class brands.",
+
+  keywords: [
+    "AV experience centre Nigeria",
+    "audio visual experience centre Lagos",
+    "AV showroom Nigeria",
+    "home cinema experience centre Nigeria",
+    "Hi-Fi listening room Nigeria",
+    "smart home experience centre Lagos",
+    "commercial audio demo Nigeria",
+    "AV demo centre West Africa",
+    "audio visual showroom West Africa",
+    "professional AV showroom Nigeria",
+    "AV experience centre Lagos",
+    "Sonos experience centre Nigeria",
+    "K-array demo Nigeria",
+    "Vicoustic experience centre",
+    "high end audio Nigeria",
+    "luxury home cinema Nigeria",
+    "AV system demo Nigeria",
+    "AV consulting experience centre",
+    "AV distribution showroom Nigeria"
+  ],
+
+  authors: [{ name: "CED Africa" }],
+  creator: "CED Africa",
+  publisher: "CED Africa",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://www.ced.africa/experiences",
+  },
+
+  openGraph: {
+    title:
+      "CED Africa AV Experience Centre | Nigeria’s Leading AV Showroom",
+    description:
+      "Step into West Africa’s most advanced AV Experience Centre. Explore immersive home cinema, Hi-Fi audio, smart home automation, acoustics and professional AV systems — all under one roof in Lagos, Nigeria.",
+    url: "https://www.ced.africa/experiences",
+    siteName: "CED Africa",
+    images: [
+      {
+        url: "https://www.ced.africa/services/2",
+        width: 1200,
+        height: 630,
+        alt: "CED Africa AV Experience Centre – Lagos, Nigeria",
+      },
+    ],
+    locale: "en_NG",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "CED Africa AV Experience Centre | Nigeria & West Africa",
+    description:
+      "Experience world-class AV, home cinema, Hi-Fi audio, smart home and commercial systems at Nigeria’s leading AV Experience Centre.",
+    images: ["https://www.ced.africa/services/2"],
+    creator: "@cedafrica",
+  },
+
+  category: "Audio Visual Experience Centre",
+};
+
+
 export default async function ExperienceDetails({ params }) {
   const { slug } = params
 

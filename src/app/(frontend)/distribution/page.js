@@ -25,6 +25,89 @@ import { Headphones,
   GraduationCap
  } from "lucide-react"
 
+ export const metadata = {
+  title: "AV Distribution in Nigeria | Premium Audio Visual Brands | CED Africa",
+
+  description:
+    "CED Africa is Nigeria’s leading AV distribution company supplying premium audio visual, smart home, acoustic and professional AV brands. Authorized distributor of Sonos, K-array, Sonance, Focal, Naim, Vicoustic, Trinnov Audio, Lutron, Reolink and more. Serving system integrators, architects, contractors and developers across Nigeria and West Africa.",
+
+  keywords: [
+    "AV distribution Nigeria",
+    "audio visual distributor Nigeria",
+    "professional AV brands Nigeria",
+    "AV dealers Nigeria",
+    "audio visual equipment Nigeria",
+    "AV suppliers Lagos",
+    "AV wholesalers Nigeria",
+    "smart home distribution Nigeria",
+    "acoustic solutions Nigeria",
+    "commercial audio visual Nigeria",
+    "home automation distribution Nigeria",
+    "Sonos distributor Nigeria",
+    "K-array distributor Nigeria",
+    "Sonance distributor Nigeria",
+    "Focal distributor Nigeria",
+    "Naim Audio Nigeria",
+    "Vicoustic Nigeria",
+    "Trinnov Audio Nigeria",
+    "Lutron Nigeria",
+    "Reolink Nigeria",
+    "AV system integrators Nigeria",
+    "AV contractors Nigeria",
+    "AV experience centre Lagos"
+  ],
+
+  authors: [{ name: "CED Africa" }],
+  creator: "CED Africa",
+  publisher: "CED Africa",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://www.ced.africa/distribution",
+  },
+
+  openGraph: {
+    title: "AV Distribution in Nigeria | Premium Audio Visual Brands | CED Africa",
+    description:
+      "Nigeria’s trusted AV distribution partner for premium audio visual, smart home and acoustic brands. Authorized distributor of Sonos, K-array, Sonance, Focal, Naim, Vicoustic, Trinnov Audio, Lutron, Reolink and more.",
+    url: "https://www.ced.africa/distribution",
+    siteName: "CED Africa",
+    images: [
+      {
+        url: "https://www.ced.africa/services/2",
+        width: 1200,
+        height: 630,
+        alt: "CED Africa AV Distribution – Premium Audio Visual Brands in Nigeria",
+      },
+    ],
+    locale: "en_NG",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "AV Distribution in Nigeria | CED Africa",
+    description:
+      "Premium AV distribution in Nigeria. Sonos, K-array, Sonance, Focal, Naim, Vicoustic, Trinnov Audio, Lutron, Reolink and more.",
+    images: ["https://www.ced.africa/services/2"],
+    creator: "@cedafrica",
+  },
+
+  category: "Audio Visual Distribution",
+};
+
+
 const Distribution = async () => {
 
   // ⭐ REQUIRED for Payload to work

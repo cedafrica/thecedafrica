@@ -7,6 +7,8 @@ import Image from 'next/legacy/image'
 import GalleryModalViewer from '../../components/GalleryModalViewer'
 import FadeInOnScroll from '../../components/FadeInOnScroll'
 
+
+
 export default async function ExperienceGalleryDetails({ params }) {
   const { id } = params
 
