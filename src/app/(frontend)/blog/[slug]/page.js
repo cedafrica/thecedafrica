@@ -246,123 +246,274 @@ const blogPosts = [
   /* ========================================================= */
 
   {
-    id: 2,
-    title: "Why AV Consulting Should Never Be an Afterthought in Modern Buildings",
-    category: "AV Consulting & Architecture",
-    date: "2025-12-25",
-    excerpt:
-      "Why late AV decisions lead to compromised architecture, poor performance, and unnecessary rework — and how early AV consulting changes everything.",
-    image: "/phc.jpg",
+  id: 2,
+  title: "The AV Problem Architects Only Discover When It’s Too Late",
+  category: "Architecture & AV Consulting",
+  date: "2025-12-25",
+  excerpt:
+    "After decades of working on buildings across residential, commercial, hospitality, and public spaces, one truth has never changed. Most architectural compromises blamed on technology are caused by when AV decisions are made.",
+  image: "/phc.jpg",
 
-    content: `
+  content: `
+    <p class="text-center text-gray-500 text-sm italic pt-2 mb-12">
+      When technology is designed early, it disappears into the architecture.
+      When it arrives late, it competes with it.
+    </p>
 
-<p class="text-center text-gray-500 text-sm italic pt-2 mb-10">
-  When technology is designed early, it disappears into the architecture.
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      After decades of working on buildings across residential, commercial,
+      hospitality, and public spaces, one truth has never changed.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      No architect ever intends to compromise their design.
+      It usually happens quietly, much later, because of AV.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      Not because the architect lacked vision.
+      Not because the technology was poor.
+      But because the technology arrived after the architecture had already made
+      its most important decisions.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      By the time AV enters the conversation, the ceiling is already defined.
+      The lighting concept is locked.
+      The MEP routes are coordinated.
+      And the architecture is no longer flexible.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-12">
+      That is when good buildings begin to negotiate with technology instead of
+      commanding it.
+    </p>
+
+    <h3 class="text-3xl font-extrabold text-black mt-20 mb-6">
+      The Moment Things Start Going Wrong
+    </h3>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      It usually begins innocently.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      A screen is requested.
+      A sound system is “needed.”
+      Someone asks, “Can we just add speakers here?”
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      On paper, it looks simple.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      In reality, this is where architecture begins to lose leverage.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      Because AV is not decorative.
+      It is spatial, acoustic, electrical, thermal, and experiential, all at once.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      When introduced late, it does not adapt quietly.
+      It demands space, and space must come from somewhere.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      So ceilings are lowered.
+      Lines are interrupted.
+      Symmetry is sacrificed.
+      Acoustics are “corrected” instead of designed.
+      Technology becomes visible, not by intention, but by necessity.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-12">
+      At this point, the building still functions.
+      But it no longer feels resolved.
+    </p>
+
+    <h3 class="text-3xl font-extrabold text-black mt-20 mb-6">
+      What Most People Misunderstand About AV
+    </h3>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      After many years in this industry, I can say this confidently.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      Most AV problems have nothing to do with equipment.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      They are problems of timing.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      When AV is treated as a late stage addition, it behaves like an intruder.
+      When it is considered early, it behaves like a collaborator.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      Good AV consulting is not about choosing brands.
+      It is not about selling devices.
+      And it is certainly not about filling spaces with technology.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-12">
+      At its best, AV consulting is about preserving architectural intent while
+      ensuring spaces perform the way people actually use them.
+    </p>
+
+    <h3 class="text-3xl font-extrabold text-black mt-20 mb-6">
+      Why Architects Feel the Pain More Than Anyone Else
+    </h3>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      When AV is added late, the consequences rarely land on the AV contractor.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      They land on the architect.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      Clients don’t say, “The AV consultant failed.”
+      They say, “The design doesn’t feel as clean as the render.”
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      They don’t complain about cable routes.
+      They complain about visual clutter.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      They don’t talk about acoustics in technical terms.
+      They say, “The room doesn’t sound right.”
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-12">
+      And slowly, architecture is blamed for compromises it never created,
+      but was forced to absorb.
+    </p>
+
+    <h3 class="text-3xl font-extrabold text-black mt-20 mb-6">
+      The Rule That Has Saved More Projects Than Any Specification
+    </h3>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      There is a rule I have seen save time, money, and design integrity again
+      and again.
+    </p>
+
+    <p class="text-2xl font-bold text-black mb-12 text-center">
+      If it affects the ceiling, it must be discussed early.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      Speakers.
+      Microphones.
+      Cameras.
+      Screens.
+      Sensors.
+      Acoustic treatments.
+      Control interfaces.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      These are not accessories.
+      They are spatial decisions.
+    </p>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-12">
+      When architects engage AV early, something powerful happens.
+    </p>
+
+    <ul class="list-disc list-inside space-y-3 text-gray-800 text-[1.1rem] mb-12">
+      <li>Ceilings stay clean.</li>
+      <li>Acoustics are designed, not corrected.</li>
+      <li>Technology aligns with proportions and sightlines.</li>
+      <li>Control feels intuitive, not intrusive.</li>
+      <li>The building feels intentional all the way through.</li>
+    </ul>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-12">
+      Most importantly, technology disappears into the architecture.
+    </p>
+
+    <h3 class="text-3xl font-extrabold text-black mt-20 mb-6">
+      What Early AV Collaboration Really Gives Architects
+    </h3>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      When AV consulting is brought in early, not to dominate, but to listen,
+      architecture gains.
+    </p>
+
+    <ul class="list-disc list-inside space-y-3 text-gray-800 text-[1.1rem] mb-12">
+      <li>Freedom, not restriction.</li>
+      <li>Fewer redesign cycles.</li>
+      <li>Cleaner detailing.</li>
+      <li>Better coordination with MEP.</li>
+      <li>Fewer “on site surprises.”</li>
+      <li>A final space that feels resolved, not negotiated.</li>
+    </ul>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-12">
+      This is not about adding more consultants.
+      It is about removing future compromises.
+    </p>
+
+    <h3 class="text-3xl font-extrabold text-black mt-20 mb-6">
+      A Final Thought From Experience
+    </h3>
+
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+  Across decades of real projects, the most expensive AV mistakes were never technical.
 </p>
 
-<p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
-  Across many modern building projects today, audiovisual systems are still treated as accessories — something to be added after architecture, interiors, lighting, and MEP decisions have already been finalized.
-</p>
 
-<p class="text-gray-800 text-[1.15rem] leading-relaxed mb-10">
-  This mindset quietly creates compromised spaces, costly redesigns, and AV systems that never truly perform as intended.
-</p>
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
+      They were strategic.
+    </p>
 
-<img src="/noav.png" class="w-full rounded-2xl shadow mb-12" />
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      They happened when AV was treated as something to “fit in later,” instead
+      of something to design alongside architecture.
+    </p>
 
-<h3 class="text-3xl font-extrabold text-black mt-20 mb-6">
-  The Hidden Cost of Treating AV as an Afterthought
-</h3>
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
+      Great buildings are not just seen.
+      They are heard, felt, and experienced.
+    </p>
 
-<p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
-  Most AV failures are not caused by bad equipment. They are caused by bad timing and poor integration.
-</p>
+    <p class="text-gray-800 text-[1.15rem] leading-relaxed">
+      And those experiences must be designed early.
+    </p>
+    <!-- ====================================== -->
+<!-- CTA BOX -->
+<!-- ====================================== -->
 
-<ul class="list-disc list-inside space-y-3 text-gray-800 text-[1.1rem] mb-10">
-  <li>Ceiling conflicts between AV, lighting, HVAC, and sprinklers</li>
-  <li>Inadequate power, cooling, and cable pathways</li>
-  <li>Poor acoustics no speaker upgrade can fix</li>
-  <li>Screens that ignore sightlines and interior intent</li>
-  <li>Control systems that feel complex instead of intuitive</li>
-</ul>
-
-<img src="/residential.jpeg" class="w-full rounded-2xl shadow mb-12" />
-
-<h3 class="text-3xl font-extrabold text-black mt-20 mb-6">
-  What AV Consulting Really Means
-</h3>
-
-<p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
-  AV consulting is not equipment sales. It is not installation. And it is not choosing brands based on preference.
-</p>
-
-<p class="text-gray-800 text-[1.15rem] leading-relaxed mb-8">
-  True AV consulting is a strategic discipline that sits at the intersection of architecture, engineering, and user experience.
-</p>
-
-<ul class="list-disc list-inside space-y-3 text-gray-800 text-[1.1rem] mb-12">
-  <li>Understanding how spaces are meant to be used</li>
-  <li>Translating experience goals into technical requirements</li>
-  <li>Coordinating AV with architects, MEP, and interior teams</li>
-  <li>Producing documentation installers can execute correctly</li>
-  <li>Protecting design intent while ensuring long-term performance</li>
-</ul>
-
-<img src="/consult.webp" class="w-full rounded-2xl shadow mb-12" />
-
-<h3 class="text-3xl font-extrabold text-black mt-20 mb-6">
-  Why Early AV Involvement Changes Everything
-</h3>
-
-<p class="text-gray-800 text-[1.15rem] leading-relaxed mb-6">
-  There is a simple rule that saves time, money, and frustration on most projects:
-</p>
-
-<p class="text-2xl font-bold text-black mb-10">
-  If it affects the ceiling, it should be considered early.
-</p>
-
-<ul class="list-disc list-inside space-y-3 text-gray-800 text-[1.1rem] mb-12">
-  <li>Cleaner ceilings with fewer compromises</li>
-  <li>Better acoustics without visible treatments</li>
-  <li>Optimized speaker and microphone placement</li>
-  <li>Proper screen positioning</li>
-  <li>Technology that feels invisible</li>
-</ul>
-
-<img src="/phc.jpg" class="w-full rounded-2xl shadow mb-12" />
-
-<h3 class="text-3xl font-extrabold text-black mt-20 mb-6">
-  Final Thought
-</h3>
-
-<p class="text-gray-800 text-[1.15rem] leading-relaxed mb-4">
-  The most expensive AV mistake is not technical.
-</p>
-
-<p class="text-2xl font-bold text-black mb-12">
-  It is strategic.
-</p>
-
-<p class="text-gray-800 text-[1.15rem] leading-relaxed">
-  AV should never be an afterthought. It should be designed.
-</p>
-
-<div class="mt-20 p-10 rounded-2xl bg-gray-100 border border-gray-200 text-center">
-  <h3 class="text-2xl font-extrabold mb-4">
-    Plan AV Early. Design It Right.
+<div class="mt-20 p-10 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 shadow-lg text-center">
+  <h3 class="text-2xl font-extrabold text-gray-900 mb-4">
+    A Better Way to Integrate AV
   </h3>
-  <p class="text-gray-700 text-[1.1rem] mb-6">
-    Work with a consulting-led AV partner that understands architecture,
-    engineering, and experience.
+  <p class="text-gray-700 text-[1.15rem] leading-relaxed mb-6">
+    For architects, AV consulting is not about adding complexity. It is about protecting design intent, reducing coordination risk, and delivering spaces that perform as beautifully as they look.
   </p>
-  <a href="/contact" class="font-semibold underline">
-    Start a Project →
-  </a>
-</div>
 
-    `,
-  },
+  <div class="flex justify-center gap-6">
+    <a href="/consulting" class="text-black font-semibold underline underline-offset-4">
+      Start a Conversation →
+    </a>
+    <a href="/projects" class="text-black font-semibold underline underline-offset-4">
+      View Our Projects →
+    </a>
+  </div>
+</div>
+  `,
+}
 
 ]
 

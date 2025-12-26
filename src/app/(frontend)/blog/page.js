@@ -41,39 +41,41 @@ const blogPosts = [
   },
 
   {
-    id: 2,
-    title: 'Why AV Consulting Should Never Be an Afterthought in Modern Buildings',
-    category: 'AV-Consulting',
-    date: '2025-12-25',
-    excerpt:
-      'In many modern buildings, AV is still treated as something to add later. This article explains why that mindset leads to compromised design, costly rework, and underperforming systems — and why early AV consulting is essential.',
-    image: '/phc.jpg',
+  id: 2,
+  title: "The AV Problem Architects Only Discover When It’s Too Late",
+  category: "AV-Consulting",
+  date: "2025-12-25",
+  excerpt:
+    "Across decades of real projects, the most expensive AV mistakes were never technical. This article explains why late AV decisions quietly compromise architecture, design intent, and spatial experience, and how early AV consulting prevents it.",
 
-    seo: {
-      metaTitle:
-        'Why AV Consulting Should Never Be an Afterthought in Modern Buildings',
-      metaDescription:
-        'Treating AV as an afterthought leads to design conflicts, poor acoustics, and costly redesigns. Learn why early AV consulting is essential in modern buildings.',
-      keywords: [
-        'AV consulting',
-        'audiovisual consulting',
-        'AV in modern buildings',
-        'AV planning for architects',
-        'smart building AV',
-        'AV coordination',
-        'AV design services',
-        'commercial AV systems',
-        'luxury home AV',
-      ],
-      ogTitle:
-        'Why AV Consulting Must Be Considered Early in Modern Buildings',
-      ogDescription:
-        'Late AV decisions compromise architecture and performance. Discover why AV consulting must be part of early design conversations.',
-      ogImage: '/pa.webp',
-      canonical:
-        'https://www.ced.africa/blog/av-consulting-not-an-afterthought',
-    },
+  image: "/phc.jpg",
+
+  seo: {
+    metaTitle:
+      "The AV Problem Architects Only Discover When It’s Too Late",
+    metaDescription:
+      "Most architectural compromises blamed on technology are caused by late AV decisions. Learn why architects who integrate AV early protect design intent, reduce rework, and deliver better spaces.",
+    keywords: [
+      "AV consulting for architects",
+      "architectural AV design",
+      "AV coordination in buildings",
+      "early stage AV planning",
+      "AV consulting Nigeria",
+      "audiovisual design for architecture",
+      "AV and MEP coordination",
+      "smart building AV consulting",
+      "luxury residential AV design",
+    ],
+    ogTitle:
+      "The AV Problem Architects Only Discover When It’s Too Late",
+    ogDescription:
+      "Late AV decisions quietly compromise architecture. Discover why early AV consulting helps architects protect design intent and deliver better spatial experiences.",
+    ogImage: "/pa.webp",
+    canonical:
+      "https://www.ced.africa/blog/the-av-problem-architects-discover-too-late",
   },
+}
+
 ]
 
 
