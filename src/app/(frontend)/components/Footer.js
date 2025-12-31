@@ -37,18 +37,29 @@ export default function Footer() {
               <li className="flex items-center gap-2 ">
                 <Image src="/insta.svg" alt="Instagram icon" width={16} height={16} />
                 <a
-                  href="https://instagram.com/ced.africa"
+                  href="https://instagram.com/ced.distribution"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-gray-300"
                 >
-                  Instagram
+                  Instagram - CED Distribution
+                </a>
+              </li>
+              <li className="flex items-center gap-2 ">
+                <Image src="/insta.svg" alt="Instagram icon" width={16} height={16} />
+                <a
+                  href="https://instagram.com/ced.consulting"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300"
+                >
+                  Instagram - CED Consulting
                 </a>
               </li>
               <li className="flex items-center gap-2 ">
                 <Image src="/linkedin.svg" alt="LinkedIn icon" width={16} height={16} />
                 <a
-                  href="https://linkedin.com/company/cedafrica"
+                  href="https://linkedin.com/company/91072910"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-gray-300"
@@ -106,21 +117,7 @@ export default function Footer() {
                   />
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/magazine"
-                  className="group flex items-center gap-2 hover:gap-4 transition-all duration-300"
-                >
-                  <span>Magazine</span>
-                  <Image
-                    src="/whitearrow.svg"
-                    alt="arrow"
-                    width={16}
-                    height={16}
-                    className="transform transition-transform duration-300 group-hover:-rotate-45"
-                  />
-                </Link>
-              </li>
+              
               <li>
                 <Link
                   href="/blog"

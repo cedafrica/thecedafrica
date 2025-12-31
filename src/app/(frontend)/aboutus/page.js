@@ -216,7 +216,7 @@ const AboutUs = async () => {
 
                 <div className="w-full lg:px-12 px-6 border-l border-black flex flex-col justify-center align-center">
                   <h2 className="text-xl font-bold articulatcf  py-4">
-                    Soundhouse Experience Center
+                    Soundhous Experience Centre
                   </h2>
 
                   <p className="text-base articulatcfLight" style={{ color: 'grey' }}>

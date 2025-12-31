@@ -65,7 +65,7 @@ const services = [
     id: 2,
     title: "Large Experiential Venues",
     description:
-      "World-class AV consulting for spaces designed to inspire. House of worship, stadiums, arenas, concert halls and event spaces requiring scale, precision and emotional impact.",
+      "World-class AV consulting for spaces designed to inspire. Houses of worship, stadiums, arenas, concert halls and event spaces requiring scale, precision and emotional impact.",
     image: "/how.png",
     modalTitle: "Experiential Venue Consulting",
     items: [
@@ -163,41 +163,46 @@ const Consulting = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="https://forms.zohopublic.com/cedafrica1/form/CEDAFRICATRADEPARTNERREGISTRATION/formperma/GjW-gerRT7hXlJQd4HTw7SzZo9YZkQ4nIuC9Yapk-q8"
-                target="_blank"
-                className="group inline-flex items-center gap-4 rounded-full border border-white text-white px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
-              >
-                <span>Become a Trade Partner</span>
-                <Image
-                  src="/whitearrow.svg"
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:-rotate-45"
-                />
-              </Link>
+             <Link
+  href="https://forms.zohopublic.com/cedafrica1/form/CEDAFRICATRADEPARTNERREGISTRATION/formperma/GjW-gerRT7hXlJQd4HTw7SzZo9YZkQ4nIuC9Yapk-q8"
+  target="_blank"
+  className="group inline-flex items-center gap-4 rounded-full border border-white text-white px-8 py-3 transition-all duration-300 hover:bg-black"
+>
+  <span className="transition-colors duration-300 group-hover:text-white">
+    Become a Trade Partner
+  </span>
 
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault()
-                  const element = document.getElementById("ctas")
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" })
-                  }
-                }}
-                className="group inline-flex items-center gap-4 rounded-full border border-white text-white bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
-              >
-                <span>Let’s Design Your Next Project</span>
-                <Image
-                  src="/whitearrow.svg"
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:-rotate-45"
-                />
-              </Link>
+  <Image
+    src="/whitearrow.svg"
+    alt="arrow"
+    width={16}
+    height={16}
+    className="transition-transform duration-300 group-hover:-rotate-45"
+  />
+</Link>
+<Link
+  href="#"
+  onClick={(e) => {
+    e.preventDefault()
+    const element = document.getElementById("ctas")
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }}
+  className="group inline-flex items-center gap-4 rounded-full border border-white text-white bg-transparent px-8 py-3 transition-all duration-300 hover:bg-black"
+>
+  <span className="transition-colors duration-300 group-hover:text-white">
+    Let’s Design Your Next Project
+  </span>
+
+  <Image
+    src="/whitearrow.svg"
+    alt="arrow"
+    width={16}
+    height={16}
+    className="transition-transform duration-300 group-hover:-rotate-45"
+  />
+</Link>
             </div>
           </FadeInOnScroll>
         </div>
@@ -300,9 +305,9 @@ const Consulting = () => {
                   <p className="text-gray-700 mb-4">
                     {service.description}
                   </p>
-                  <p className="text-gray-500 italic text-sm mb-6">
+                  {/* <p className="text-gray-500 italic text-sm mb-6">
                     We support you from understanding your needs to designing and validating a complete solution. Integration to be handled by approved system integrator.
-                  </p>
+                  </p>*/}
 
                   <div className="flex flex-wrap gap-3 mt-auto">
                     {/* Scroll CTA */}
@@ -355,16 +360,16 @@ const Consulting = () => {
           <FadeInOnScroll direction="right">
             <div>
               <h2 className="text-2xl lg:text-3xl articulatcf font-black mb-6">
-                Nigeria’s First Independent AV Consultance
+                Nigeria’s First Independent AV Consultancy
               </h2>
 
               <p className="text-gray-300 articulatcfLight leading-relaxed mb-6">
-                CED Africa is Nigeria’s first indigenous AV consulting firm, guiding High-End Residential Apartments & Private Estates, Large Experiential Venues, Premium Hospitality & Lifestyle Spaces, Tier-1 Enterprise & Institutional Environments to globally benchmarked audiovisual experiences.
+                CED Africa is Nigeria’s first indigenous AV consulting firm, guiding high-end residential apartments & private estates, large experiential venues, premium hospitality & lifestyle spaces, tier-1 enterprise & institutional environments to globally benchmarked audiovisual experiences.
               </p>
 
               <p className="text-gray-300 articulatcfLight leading-relaxed mb-6">
                 We <span className="text-white font-semibold">consult and design</span>{" "}
-                the AV solution for your space. From client discovey to conceptual design, technical documentation and system performance verification, ensuring the AV systems align with client expectations and deliver the intended experience without compromise.
+                the AV solution for your space. From client discovery to conceptual design, technical documentation and system performance verification, ensuring the AV systems align with client expectations and deliver the intended experience without compromise.
               </p>
 
              
@@ -659,7 +664,7 @@ const Consulting = () => {
               Ready to Create an Exceptional Space?
             </h2>
             <p className="text-lg lg:text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-              Let’s design AV that elevates the experience—not complicates it.
+              Let’s design AV that elevates the experience, not complicates it.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -688,7 +693,7 @@ const Consulting = () => {
                 }}
                 className="group inline-flex items-center gap-4 rounded-full border border-white text-white bg-transparent px-8 py-3 transition-all duration-300 hover:bg-white hover:text-black hover-btn"
               >
-                <span>Let’s Design Your Next Projects</span>
+                <span>Let’s Design Your Next Project</span>
                 <Image
                   src="/whitearrow.svg"
                   alt="arrow"
@@ -709,7 +714,7 @@ const Consulting = () => {
             Ready to Design Your AV Project?
           </h2>
           <p className="text-gray-600 mb-12">
-            Fill out the form below and let’s collaborate to create a flawless AV experience for your space.
+            We support you from understanding your needs to designing and validating a complete solution. Integration to be handled by approved system integrator.
           </p>
 
           <div className="bg-white shadow-2xl rounded-2xl overflow-hidden p-6 md:p-12">

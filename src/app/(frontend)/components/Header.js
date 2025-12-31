@@ -24,21 +24,22 @@ export default function Header() {
     
 
     // SERVICES (dynamic API submenu)
-    { title: 'SERVICES', path: '#', submenu: [] },
-
-    { title: 'EXPERIENCES', path: '/experiences' },
-    { title: 'BLOG', path: '/blog' },
-    { title: 'PROJECTS', path: '/projects' },
-    { title: 'PARTNERS', path: '/partners' },
-    // NEW: CED ARMS (PARENT MENU)
+    //{ title: 'SERVICES', path: '#', submenu: [] },
     {
-      title: 'CED PRO',
+      title: 'SERVICES',
       path: '#',
       submenu: [
         { title: 'AV DISTRIBUTION', path: '/distribution' },
         { title: 'AV CONSULTING', path: '/consulting' },
       ],
     },
+
+    { title: 'EXPERIENCES', path: '/experiences' },
+    { title: 'BLOG', path: '/blog' },
+    { title: 'PROJECTS', path: '/projects' },
+    { title: 'PARTNERS', path: '/partners' },
+    // NEW: CED ARMS (PARENT MENU)
+    
     { title: 'STORE', path: 'https://www.soundhous.com' },
     { title: 'CONTACT US', path: '/contact' },
   ])

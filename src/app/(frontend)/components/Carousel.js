@@ -167,12 +167,12 @@ const Carousel = ({ headers }) => {
                           <div className="flex flex-col gap-6">
                             <Image
                               src="/CEDEXP.svg"
-                              alt="Experience Center"
+                              alt="Experience Centre"
                               width={70}
                               height={70}
                             />
                             <p className="text-sm" style={{ color: 'white' }}>
-                              EXPERIENCE CENTER
+                              EXPERIENCE CENTRE
                             </p>
                           </div>
                         </Link>

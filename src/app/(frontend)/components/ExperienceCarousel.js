@@ -101,7 +101,7 @@ const ExperienceCarousel = ({ experiences }) => {
             href="/experiences"
             className=" group inline-flex items-center gap-4 rounded-full border border-black bg-transparent px-6 py-4 text-black transition-all duration-300 hover:bg-gray-500 hover:text-black hover-btn"
           >
-            <span>Discover Our Experience Center</span>
+            <span>Discover Our Experience Centre</span>
             <Image
               src="/blackarrow.svg"
               alt="arrow"
@@ -117,7 +117,7 @@ const ExperienceCarousel = ({ experiences }) => {
           href="/experiences"
           className="group inline-flex items-center gap-4 rounded-full border border-black bg-transparent px-6 py-4 text-black transition-all duration-300  hover-btn"
         >
-          <span>Discover Our Experience Center</span>
+          <span>Discover Our Experience Centre</span>
           <Image
             src="/blackarrow.svg"
             alt="arrow"

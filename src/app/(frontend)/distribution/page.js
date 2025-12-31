@@ -6,6 +6,8 @@ import React from 'react'
 import BrandTab from '../components/BrandTab'
 import Link from 'next/link'
 import Image from 'next/legacy/image'
+import DistributionAudience from "../components/DistributionAudience";
+
 import FadeInOnScroll from '../components/FadeInOnScroll'
 import { Headphones,
   Users,
@@ -186,35 +188,17 @@ const Distribution = async () => {
     {/* Header */}
     <div className="text-center mb-16">
       <h2 className="text-3xl md:text-4xl articulatcf font-black mb-4">
-        A Distribution Partner Built Exclusively for Professionals
+        A Distribution Partner Built Exclusively for Solution Providers
       </h2>
       <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-        We empower Africa’s top professionals with industry-leading AV, smart home,
+        We empower Africa's top solution providers with industry-leading AV, smart home,
         networking, surveillance, and acoustic brands—curated for performance,
         reliability, and profitability.
       </p>
     </div>
 
     {/* Grid of audiences */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-16">
-      {[
-        "For System Integrators",
-        "For Electrical Contractors",
-        "For Developers",
-        "For Main Contractors"
-        
-      ].map((item, index) => (
-        <div
-          key={index}
-          className="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md 
-                     hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
-        >
-          <h3 className="text-xl font-semibold group-hover:translate-x-1 transition-transform duration-300">
-            {item}
-          </h3>
-        </div>
-      ))}
-    </div>
+<DistributionAudience />
 
     {/* CTA */}
     <div className="flex justify-center">
@@ -697,7 +681,7 @@ const Distribution = async () => {
                    transition-all duration-300 hover:bg-black hover:text-white
                    hover:shadow-[0_0_25px_rgba(0,0,0,0.25)]"
       >
-        Book a Visit
+        Schedule a Visit
         <Image
           src="/blackarrow.svg"
           alt="arrow"
