@@ -191,7 +191,7 @@ const Distribution = async () => {
         A Distribution Partner Built Exclusively for Solution Providers
       </h2>
       <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-        We empower Africa's top solution providers with industry-leading AV, smart home,
+        We empower Africa&apos;s top solution providers with industry-leading AV, smart home,
         networking, surveillance, and acoustic brands—curated for performance,
         reliability, and profitability.
       </p>
