@@ -26,7 +26,7 @@ export default function Header() {
     // SERVICES (dynamic API submenu)
     //{ title: 'SERVICES', path: '#', submenu: [] },
     {
-      title: 'SERVICES',
+      title: 'SERVICE',
       path: '#',
       submenu: [
         { title: 'AV DISTRIBUTION', path: '/distribution' },
